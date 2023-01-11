@@ -33,8 +33,10 @@
 [Jon's Ui Library](https://github.com/Jonatanortiz2/Jons-Ui-Library)
 #### What's Jon's Ui Library?
 *   Jon's Library it's an awesome library packed with a bunch of features;
+
 # Features 
 *   Toggles
+
     Buttons
     Labels
     Sections
@@ -46,7 +48,9 @@
     Sliders
     Images
     And Lot More
+ 
 # Ui
 *   Change Themes
+
     Universal Search Tool
     Universal Save Configs (So that you dont have to!)
