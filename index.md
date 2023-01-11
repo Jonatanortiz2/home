@@ -29,8 +29,8 @@
 
 #### Features 
 
-[x] Toggles
-[x] Buttons
+- [x] Toggles
+- [x] Buttons
 - [x] Labels
 - [x] Sections
 - [x] Tabs
