@@ -14,7 +14,7 @@ And Bac Prediction And Combine Them Both Into 1, Making Drax Ware The Best One O
 #### Drax Ware Information: 
 
 ```
-Drax Ware Is Free! :confetti:
+Drax Ware Is Free! :tada:
 
 "On a shitbox, Drax Ware doesn't cause any frame rate decreases for me. - User 0912"
 
