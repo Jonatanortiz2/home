@@ -17,9 +17,9 @@
 
         Unnamed-Esp and Ro-Ware are competitors of Drax Ware ( Developed By Such amazing scripters)
 
-        In conclusion, neither Ro-Ware nor Unnamed esp were able to defeat Drax Ware in the majority of games... 
-        in terms of 𝐏𝐞𝐫𝐟𝐨𝐫𝐦𝐚𝐧𝐜𝐞 and 𝗪𝗼𝗿𝗸𝗮𝗯𝗶𝗹𝗶𝘁𝘆 ( a lot of games failed to pass the test of esp or esp and aimbot). 
-        Drax Ware works in ALL video games. Within Roblox.
+        In conclusion, neither Ro-Ware nor Unnamed esp were able to defeat Drax Ware in the majority 
+        of games... In terms of 𝐏𝐞𝐫𝐟𝐨𝐫𝐦𝐚𝐧𝐜𝐞 and 𝗪𝗼𝗿𝗸𝗮𝗯𝗶𝗹𝗶𝘁𝘆 
+        (a lot of games failed to pass the test of esp or esp and aimbot) Drax Ware works in all Roblox games.
     
 # [Jons Ui Library](https://github.com/Jonatanortiz2/Jons-Ui-Library)
 
