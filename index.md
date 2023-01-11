@@ -4,7 +4,6 @@
 # Drax Ware
 [DraxWare](https://github.com/Jonatanortiz2/DraxWare)
 #### What's DraxWare?
-> Drax Ware Stands For
 
 Drax Ware It is an all-purpose tool with these features. As: 
 Esp, Aimbot, & Macros (Yes, This Aimbot Has Prediction Built In; I Took My Time To Make Ai Prediction
