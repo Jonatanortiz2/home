@@ -44,7 +44,6 @@
  
 #### Ui
 
-*   Change Themes
-
+- [x] Change Themes
 - [x] Universal Search Tool
 - [x] Universal Save Configs (So that you dont have to!)
