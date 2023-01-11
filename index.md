@@ -4,7 +4,7 @@
 # Drax Ware
 [DraxWare](https://github.com/Jonatanortiz2/DraxWare)
 #### What's DraxWare?
->   ᴅʀᴀx ᴡᴀʀᴇ Stands For
+*   ᴅʀᴀx ᴡᴀʀᴇ Stands For
     
     (***D***)on't
     
@@ -26,7 +26,7 @@
     Esp, Aimbot, & Macros (Yes, This Aimbot Has Prediction Built In; I Took My Time To Make Ai Prediction
     And Bac Prediction And Combine Them Both Into 1, Making ᴅʀᴀx ᴡᴀʀᴇ The Best One Out There); plus a lot more.
 
-> ᴅʀᴀx ᴡᴀʀᴇ Information: 
+*   ᴅʀᴀx ᴡᴀʀᴇ Information: 
 
     ᴅʀᴀx ᴡᴀʀᴇ Is Free! :confetti:
     
