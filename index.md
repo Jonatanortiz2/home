@@ -5,24 +5,7 @@
 [DraxWare](https://github.com/Jonatanortiz2/DraxWare)
 #### What's DraxWare?
 > Drax Ware Stands For
-    
-    (***D***)on't
-    
-    (***R***)epeat
-    
-    (***A***)nd
-    
-    (***X***)-ploit -> Exploit
-
-    (***W***)in
-    
-    (***A***)bsolutely
-    
-    (***R***)are
-    
-    (***E***)*-Victories*
-
-    Principal Points: Drax Ware It is an all-purpose tool with these features. As: 
+    Drax Ware It is an all-purpose tool with these features. As: 
     Esp, Aimbot, & Macros (Yes, This Aimbot Has Prediction Built In; I Took My Time To Make Ai Prediction
     And Bac Prediction And Combine Them Both Into 1, Making Drax Ware The Best One Out There); plus a lot more.
 
