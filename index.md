@@ -29,19 +29,18 @@
 
 * Features 
 
-**   Toggles
-
-    Buttons
-    Labels
-    Sections
-    Tabs
-    Keybinds
-    Colorpickers
-    Dropdowns
-    Textboxes
-    Sliders
-    Images
-    And Lot More
+- [x] Toggles
+- [x] Buttons
+- [x] Labels
+- [x] Sections
+- [x] Tabs
+- [x] Keybinds
+- [x] Colorpickers
+- [x] Dropdowns
+- [x] Textboxes
+- [x] Sliders
+- [x] Images
+- [?] And Lot More
  
 # Ui
 *   Change Themes
