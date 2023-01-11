@@ -23,7 +23,8 @@
     (***E***)*-Victories*
 
     Principal Points: ᴅʀᴀx ᴡᴀʀᴇ It is an all-purpose tool with these features. As: 
-    Esp, Aimbot, & Macros (Yes, This Aimbot Has Prediction Built In; I Took My Time To Make Ai Prediction And Bac Prediction And Combine Them Both Into 1, Making ᴅʀᴀx ᴡᴀʀᴇ The Best One Out There); plus a lot more.
+    Esp, Aimbot, & Macros (Yes, This Aimbot Has Prediction Built In; I Took My Time To Make Ai Prediction
+    And Bac Prediction And Combine Them Both Into 1, Making ᴅʀᴀx ᴡᴀʀᴇ The Best One Out There); plus a lot more.
 
 > ᴅʀᴀx ᴡᴀʀᴇ Information: 
 
