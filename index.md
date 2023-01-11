@@ -25,7 +25,7 @@
 
 * What's Jon's Ui Library?
 
-Jon's Library it's an awesome library packed with a bunch of features;
+        Jon's Library it's an awesome library packed with a bunch of features;
 
 * Features 
 
@@ -40,10 +40,11 @@ Jon's Library it's an awesome library packed with a bunch of features;
 - [x] Textboxes
 - [x] Sliders
 - [x] Images
-- [?] And Lot More
+- [x] And Lot More
  
-# Ui
+#### Ui
+
 *   Change Themes
 
-    Universal Search Tool
-    Universal Save Configs (So that you dont have to!)
+- [x] Universal Search Tool
+- [x] Universal Save Configs (So that you dont have to!)
