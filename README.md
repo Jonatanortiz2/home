@@ -1,4 +1,3 @@
-# Jon's Ui Library
 > Hello there I Appreciate You Being Here. Enjoy and make yourself comfortable.
 
 # Introduction
