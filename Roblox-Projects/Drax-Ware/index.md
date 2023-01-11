@@ -1,5 +1,4 @@
 # DraxWare
-> Hello there I Appreciate You Being Here. Enjoy and make yourself comfortable.
 
 ***D***on't
 
