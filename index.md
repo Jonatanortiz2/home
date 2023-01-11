@@ -4,7 +4,7 @@
 # Drax Ware
 [DraxWare](https://github.com/Jonatanortiz2/DraxWare)
 #### What's DraxWare?
-> ᴅʀᴀx ᴡᴀʀᴇ Stands For
+>   ᴅʀᴀx ᴡᴀʀᴇ Stands For
     
     (***D***)on't
     
