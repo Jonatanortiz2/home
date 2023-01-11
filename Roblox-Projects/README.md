@@ -1,4 +1,4 @@
-# Roblox Porjects
+# Roblox Projects
 
 so far, I have these projects publicly shown below.
 
