@@ -2,10 +2,10 @@
 
 Take A Look At The [Library Source](Source.lua) Here
 
-Take A Look At The [Library Rawed-Source](https://raw.githubusercontent.com/Jonatanortiz2/Jons-Ui-Library/main/Source.lua) Here
+Take A Look At The [Library Rawed-Source](https://raw.githubusercontent.com/Jonatanortiz2/home/main/Roblox-Projects/Jons-Ui-Library/Source.lua) Here
 ## Getting My Library
 ```lua
-local Library = loadstring(game:HttpGet('https://raw.githubusercontent.com/Jonatanortiz2/Jons-Ui-Library/main/Source.lua'))();
+local Library = loadstring(game:HttpGet('https://raw.githubusercontent.com/Jonatanortiz2/home/main/Roblox-Projects/Jons-Ui-Library/Source.lua'))();
 ```
 
 ## Creating Window
@@ -374,7 +374,7 @@ end
 # Example Script
 
 ```lua
-local Library = loadstring(game:HttpGet('https://raw.githubusercontent.com/Jonatanortiz2/Jons-Ui-Library/main/Source.lua'))();
+local Library = loadstring(game:HttpGet('https://raw.githubusercontent.com/Jonatanortiz2/home/main/Roblox-Projects/Jons-Ui-Library/Source.lua'))();
 
 local Window = Library:CreateWindow('Hub Name', false)
 
