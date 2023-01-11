@@ -47,6 +47,6 @@
     Images
     And Lot More
 # Ui
-    Change Themes
+*   Change Themes
     Universal Search Tool
     Universal Save Configs (So that you dont have to!)
