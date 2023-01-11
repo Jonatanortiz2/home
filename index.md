@@ -28,7 +28,7 @@
 
 * Features 
 
-        *   Toggles
+**   Toggles
 
     Buttons
     Labels
