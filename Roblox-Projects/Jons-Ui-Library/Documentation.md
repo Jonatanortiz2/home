@@ -13,7 +13,7 @@ local Library = loadstring(game:HttpGet('https://raw.githubusercontent.com/Jonat
 ```lua
 local Window = Library:CreateWindow('Hub Name', false)
 ```
-| parameters   | Type              | Description    | In-Depth Description |
+| parameters   | Type              | Information    | In-Depth Description |
 |:-------------|:------------------|:---------------|:---------------------|
 | 1            | `<String>`        | Name of the Ui | None |
 | 2            | `<Bool>`          | Disable Custom Themes | if true, themes will be disabled, if false, themes will be enabled (this setting is to increase performance) |
@@ -22,7 +22,7 @@ local Window = Library:CreateWindow('Hub Name', false)
 ```lua
 local Tab = Window:CreateTab('Tab', true, 'rbxassetid://4483362458', Vector2.new(0, 0), Vector2.new(0, 0))
 ```
-| parameters   | Type              | Description    | In-Depth Description |
+| parameters   | Type              | Information    | In-Depth Description |
 |:-------------|:------------------|:---------------|:---------------------|
 | 1            | `<String>`        | Name of the tab. | None |
 | 2            | `<Bool>`          | Tab visibility.  | When the GUI loads, just the enabled tab will be visible if all other tabs are disabled |
@@ -34,7 +34,7 @@ local Tab = Window:CreateTab('Tab', true, 'rbxassetid://4483362458', Vector2.new
 ```lua
 local Section = Tab:CreateSection('Section')
 ```
-| parameters   | Type              | Description    | In-Depth Description |
+| parameters   | Type              | Information    | In-Depth Description |
 |:-------------|:------------------|:---------------|:---------------------|
 | 1            | `<String>`        | Name of the section. | None |
 
