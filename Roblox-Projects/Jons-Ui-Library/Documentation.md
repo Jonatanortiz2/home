@@ -13,29 +13,22 @@ local Library = loadstring(game:HttpGet('https://raw.githubusercontent.com/Jonat
 ```lua
 local Window = Library:CreateWindow('Hub Name', false)
 ```
-
-| parameters   | Type              | Description |
-|:-------------|:------------------|:---------------|
-| 1            | `<String>`        | Name of the Ui |
-| 2            | `<Bool>`          | if true, themes will be disabled, if false, themes will be enabled (this setting is to increase performance) |
-
-```text
-1.) <String> Name of the UI.
-2.) <Bool> 
-```
+| parameters   | Type              | Description    | In-Depth Description |
+|:-------------|:------------------|:---------------|:---------------------|
+| 1            | `<String>`        | Name of the Ui | None |
+| 2            | `<Bool>`          | Disable Custom Themes | if true, themes will be disabled, if false, themes will be enabled (this setting is to increase performance) |
 
 ## Creating Tabs
 ```lua
 local Tab = Window:CreateTab('Tab', true, 'rbxassetid://4483362458', Vector2.new(0, 0), Vector2.new(0, 0))
 ```
-```text
-1.) <String> Name of the tab.
-2.) <Bool> Tab visibility.
-    2).a When the GUI loads, just the enabled tab will be visible if all other tabs are disabled.
-3.) <String> Tab Image URL.
-4.) <Vector2> Tab Image RectOffset.
-5.) <Vector2> Tab Image RectSize.
-```
+| parameters   | Type              | Description    | In-Depth Description |
+|:-------------|:------------------|:---------------|:---------------------|
+| 1            | `<String>`        | Name of the tab. | None |
+| 2            | `<Bool>`          | Tab visibility.  | When the GUI loads, just the enabled tab will be visible if all other tabs are disabled |
+| 3            | `<String>`        | Tab Image URL | None |
+| 4            | `<Vector2>`       | Tab image rectoffset | | None |
+| 5            | `<Vector2>`       | Tab image rectsize | | None |
 
 ## Creating Sections
 ```lua
