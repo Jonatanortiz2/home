@@ -45,6 +45,7 @@ local Section = Tab:CreateSection('Section')
 ```lua
 local Label = Section:CreateLabel('Label')
 ```
+
 | parameters   | Type              | Information    | In-Depth Description |
 |:-------------|:------------------|:---------------|:---------------------|
 | 1            | `<String>`        | Label Text. | None |
@@ -262,20 +263,9 @@ Library:CreateNotification('Notification Title', 'Notification Text', 5)
 
 | parameters   | Type              | Information    | In-Depth Description |
 |:-------------|:------------------|:---------------|:---------------------|
-| 1            | `<String>`        | EE. | None |
-| 2            | `<String>`        | EE. | None |
-| 3            | `<Number>`        | EE. | None |
-| 4            | `<String>`        | EE. | None |
-| 5            | `<Number>`        | EE. | None |
-| 6            | `<String>`        | EE. | None |
-| 7            | `<Number>`        | EE. | None |
-| 8            | `<Function>`      | EE. | EE It will fire the function, or Callback |
-
-```text
-1.) <String> Title of the notification.
-2.) <String> The text of the notification.
-3.) <Number> The time the notification is on-screen for.
-```
+| 1            | `<String>`        | Title. | None |
+| 2            | `<String>`        | Text. | None |
+| 3            | `<Number>`        | Time. | The time until the notification fades away |
 
 ## Creating Prompts
 creates a Notification with several types inside the UI.
@@ -284,12 +274,13 @@ creates a Notification with several types inside the UI.
 ```lua
 Library:CreatePrompt('Text', 'Prompt Title', 'Prompt Text', 'Okay')
 ```
-```text
-1.) <String> The type of prompt, 'Text'. Nothing Special
-2.) <String> The title of the prompt.
-3.) <String> The text of the prompt.
-4.) <String> The name of the prompt button, button has no callback.
-```
+
+| parameters   | Type              | Information    | In-Depth Description |
+|:-------------|:------------------|:---------------|:---------------------|
+| 1            | `<String>`        | Type. | Currently you can do "Text", "OneButton", "TwoButton" |
+| 2            | `<String>`        | Title. | None |
+| 3            | `<String>`        | Text. | None |
+| 4            | `<String>`        | Button Name. | (No Call Back) |
 
 # One Button
 ```lua
@@ -300,15 +291,17 @@ Library:CreatePrompt('OneButton', 'Prompt Title', 'Prompt Text', {
     end
 })
 ```
-```text
-1.) <String> The type of prompt => 'OneButton'. Button's text and callback.
-2.) <String> The title of the prompt.
-3.) <String> The text of the prompt.
-4.) <Table> {
-    1.) <String> The name of the button.
-    2.) <Function> The callback of the button.
-}
-```
+
+| parameters   | Type              | Information    | In-Depth Description |
+|:-------------|:------------------|:---------------|:---------------------|
+| 1            | `<String>`        | Type. | Currently you can do "Text", "OneButton", "TwoButton" |
+| 2            | `<String>`        | Title. | None |
+| 3            | `<String>`        | Text. | None |
+| 4            | `<Table>`         | `1.) <String> The Name Of the button 2.) <Function> CallBack / Function` | Once Button Is Pressed, It'll Callback it |
+
+| Example Of 4 | In-Depth Example |
+|:-------------|:-----------------|
+| `<Table> { <String> , <Function> }` | `{"ButtonName", function()print("Clicked")end}`
 
 # Two Buttons
 ```lua
@@ -325,41 +318,46 @@ UIFunctions:CreateButton('Create Two Button Prompt', function()
     })
 end)
 ```
-```text
-1.) <String> The type of prompt, 'TwoButton', for text and two buttons with different callbacks.
-2.) <String> The title of the prompt.
-3.) <String> The text of the prompt.
-4.) <Table> {
-    1.) <String> The name of the first button.
-    2.) <Function> The callback of the first button.
-    3.) <String> The name of the second button.
-    4.) <Function> The callback of the second button.
-}
-```
+
+| parameters   | Type              | Information    | In-Depth Description |
+|:-------------|:------------------|:---------------|:---------------------|
+| 1            | `<String>`        | Type. | Currently you can do "Text", "OneButton", "TwoButton" |
+| 2            | `<String>`        | Title. | None |
+| 3            | `<String>`        | Text. | None |
+| 4            | `<Table>`         | `1.) <String> The Name Of the button 2.) <Function> CallBack / Function` | Once Button Is Pressed, It'll Callback it |
+
+| Example Of 4 | In-Depth Example |
+|:-------------|:-----------------|
+| `<Table> { <String> , <Function> }` | `{"FirstButtonName", function()print("Clicked")end,"SecondButtonName",function()print("Clicked 2")end}` |
 
 ## Toggle Ui
 ```lua
 Library:ToggleUI()
 ```
-```text
-1.) <Optional> Can be Set through a Dropdown, Buttton, Keybind, And Or Slider ? xd.
-```
+
+| parameters   | Type              | Information    | In-Depth Description |
+|:-------------|:------------------|:---------------|:---------------------|
+| 1            | `<Optional>`        | Editable. | Can be triggered through a dropdown, button, keybind, and or slider ? xd |
 
 ## Update UI Transparency
 ```lua
 Library:SetTransparency(0.5, true)
 ```
-```text
-1.) <Number> The new background transparency of the UI.
-2.) <Bool> If true, alerts' background transparency will change; if false, it won't.
-```
+
+| parameters   | Type              | Information    | In-Depth Description |
+|:-------------|:------------------|:---------------|:---------------------|
+| 1            | `<Number>`        | New Transparency. | None |
+| 2            | `<Bool>`        | Alert. | If true, an alert will pop up saying that the transparency will change, else not. |
+
 ## Creating / Saving Configs
 ```lua
 Library:SaveConfig('Config')
 ```
-```text
-1.) <String> The name of the configuration; if it doesn't exist, it will create one; otherwise, it will overwrite it.
-```
+
+| parameters   | Type              | Information    | In-Depth Description |
+|:-------------|:------------------|:---------------|:---------------------|
+| 1            | `<String>`        | Config Name. | If a config with the given name already exists, it will ask a prompt to bypass (overwriting it) or cancel the proccess. |
+
 
 ## Getting All Configs
 ```lua
@@ -370,17 +368,19 @@ Library:GetConfigs()
 ```lua
 Library:DeleteConfig('Config')
 ```
-```text
-1.) <String> The name of the config to delete.
-```
+
+| parameters   | Type              | Information    | In-Depth Description |
+|:-------------|:------------------|:---------------|:---------------------|
+| 1            | `<String>`        | Config Name. | The given config will be deleted, if it doesn't exist. it will catch the error. |
 
 ## Loading Configs
 ```lua
 Library:LoadConfig('Config')
 ```
-```text
-1.) <String> The name of the config to load.
-```
+
+| parameters   | Type              | Information    | In-Depth Description |
+|:-------------|:------------------|:---------------|:---------------------|
+| 1            | `<String>`        | Config Name. | The given config name will be loaded |
 
 ## Themes
 
@@ -388,9 +388,10 @@ Library:LoadConfig('Config')
 ```lua
 Library:ChangeTheme('Default')
 ```
-```text
-1.) <String or Table> a custom theme or the name of the theme you want to switch to.
-```
+
+| parameters   | Type              | Information    | In-Depth Description |
+|:-------------|:------------------|:---------------|:---------------------|
+| 1            | `<String>, <Table>`        | Optional. | This is optional, can either use a custom theme or the name of the theme you want to switch it to. |
 
 ## Getting All Themes
 ```lua
