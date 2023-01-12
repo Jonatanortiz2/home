@@ -53,7 +53,7 @@ Jon's Library it's an awesome library packed with a bunch of features;
 
 Developed for [All](https://www.roblox.com/discover#/).
 
-# [Coming Soon BAC V2.0](Jons-Ui-Library)
+# [Coming Soon BAC V2.0](BAC-V2.0)
 
 #### What's BAC?
 
@@ -62,7 +62,7 @@ the game (legitly or with fury).
 
 Developed for [Assassin](https://www.roblox.com/games/379614936/Assassin).
 
-# [Coming Soon Ai Assist V2.0](Jons-Ui-Library)
+# [Coming Soon Ai Assist V2.0](Ai-Assist-V2.0)
 
 #### What's Ai Assist?
 
@@ -71,7 +71,7 @@ for really legitimate play, and it makes it impossible to distinguish between ha
 
 Developed for [Assassin](https://www.roblox.com/games/379614936/Assassin).
 
-# [Coming Soon Laser X V2.0](Jons-Ui-Library)
+# [Coming Soon Laser X V2.0](Laser-X-V2.0)
 
 #### What's DraxWare?
 
