@@ -13,6 +13,7 @@ local Library = loadstring(game:HttpGet('https://raw.githubusercontent.com/Jonat
 ```lua
 local Window = Library:CreateWindow('Hub Name', false)
 ```
+
 | parameters   | Type              | Information    | In-Depth Description |
 |:-------------|:------------------|:----------------------|:---------------------|
 | 1            | `<String>`        | Name of the Ui        | None                 |
