@@ -23,6 +23,7 @@ local Window = Library:CreateWindow('Hub Name', false)
 ```lua
 local Tab = Window:CreateTab('Tab', true, 'rbxassetid://4483362458', Vector2.new(0, 0), Vector2.new(0, 0))
 ```
+
 | parameters   | Type              | Information    | In-Depth Description |
 |:-------------|:------------------|:---------------|:---------------------|
 | 1            | `<String>`        | Name of the tab. | None |
@@ -35,6 +36,7 @@ local Tab = Window:CreateTab('Tab', true, 'rbxassetid://4483362458', Vector2.new
 ```lua
 local Section = Tab:CreateSection('Section')
 ```
+
 | parameters   | Type              | Information    | In-Depth Description |
 |:-------------|:------------------|:---------------|:---------------------|
 | 1            | `<String>`        | Name of the section. | None |
@@ -43,33 +45,38 @@ local Section = Tab:CreateSection('Section')
 ```lua
 local Label = Section:CreateLabel('Label')
 ```
-```text
-1.) <String> Label text.
-```
+| parameters   | Type              | Information    | In-Depth Description |
+|:-------------|:------------------|:---------------|:---------------------|
+| 1            | `<String>`        | Label Text. | None |
+
 ## Updating Labels
 ```lua
 Label:UpdateLabel('New Text')
 ```
-```text
-1.) <String> New label text.
-```
+
+| parameters   | Type              | Information    | In-Depth Description |
+|:-------------|:------------------|:---------------|:---------------------|
+| 1            | `<String>`        | New label text. | None |
 
 ## Creating Paragraphs
 ```lua
 local Paragraph = Section:CreateParagraph('Paragraph', 'Content')
 ```
-```text
-1.) <String> Title of the paragraph.
-2.) <String> Content of the paragraph.
-```
+
+| parameters   | Type              | Information    | In-Depth Description |
+|:-------------|:------------------|:---------------|:---------------------|
+| 1            | `<String>`        | Title of the paragraph. | None |
+| 2            | `<String>`        | Content of the paragraph. | None |
+
 ## Updating Paragraphs
 ```lua
 Paragraph:UpdateParagraph('New Title', 'New Text')
 ```
-```text
-1.) <String> New title of the paragraph.
-2.) <String> New content of the paragraph.
-```
+
+| parameters   | Type              | Information    | In-Depth Description |
+|:-------------|:------------------|:---------------|:---------------------|
+| 1            | `<String>`        | New Title of the paragraph. | None |
+| 2            | `<String>`        | New Content of the paragraph. | None |
 
 ## Creating Buttons
 ```lua
@@ -77,10 +84,12 @@ Section:CreateButton('Button', function()
     print('Button Pressed')
 end)
 ```
-```text
-1.) <String> Name of the button.
-2.) <Function> Function / Callback of the button.
-```
+
+| parameters   | Type              | Information    | In-Depth Description |
+|:-------------|:------------------|:---------------|:---------------------|
+| 1            | `<String>`        | Name of the button. | None |
+| 2            | `<Function>`        | Function / Callback. | When Pressed, The button will fire the function, or Callback |
+
 
 ## Creating Sliders
 ```lua
@@ -88,22 +97,25 @@ local Slider = Section:CreateSlider('Slider', 1, 100, 50, false, Color3.fromRGB(
     print(Value)
 end)
 ```
-```text
-1.) <String> Name of the slider.
-2.) <Number> Minimum value of the slider.
-3.) <Number> Maximum value of the slider.
-4.) <Number> Default value of the slider.
-5.) <Bool> Precise Numbers
-6.) <Color3> Color of the slider.
-7.) <Function> Function / Callback of the slider.
-```
+
+| parameters   | Type              | Information    | In-Depth Description |
+|:-------------|:------------------|:---------------|:---------------------|
+| 1            | `<String>`        | Name of the slider. | None |
+| 2            | `<Number>`        | Minimum value. | None |
+| 3            | `<Number>`        | Maximum value. | None |
+| 4            | `<Number>`        | Default value. | None |
+| 5            | `<Bool>`        | Precise Numbers. | goes from {0,1,2,4,5} to {0.01,0.02,0.03,0.04,0.05} |
+| 6            | `<Color3>`        | Color of the Slider. | None |
+| 7            | `<Function>`        | Function / Callback. | When Slider Is Slided, It will fire the function, or Callback |
+
 ## Updating Sliders
 ```lua
 Slider:Set(Value)
 ```
-```text
-1.) <Number> Slider Will update To This Value.
-```
+
+| parameters   | Type              | Information    | In-Depth Description |
+|:-------------|:------------------|:---------------|:---------------------|
+| 1            | `<Number>`        | Slider New Value. | Slider will update to this value |
 
 ## Creating Textboxes
 ```lua
@@ -111,11 +123,12 @@ Section:CreateTextbox('Textbox', 'TextGoesHere', function(Value)
     print(Value)
 end)
 ```
-```text
-1.) <String> Name of the textbox.
-2.) <String> placeholder of the textbox.
-3.) <Function> Function / Callback of the textbox.
-```
+
+| parameters   | Type              | Information    | In-Depth Description |
+|:-------------|:------------------|:---------------|:---------------------|
+| 1            | `<String>`        | Name of the textbox. | None |
+| 2            | `<String>`        | Placeholder Text. | None |
+| 3            | `<Function>`        | Function / Callback. | When thext is set it will fire the function, or Callback |
 
 ## Creating Keybinds
 ```lua
@@ -123,29 +136,30 @@ local Keybind = Section:CreateKeybind('Keybind', 'A', function()
     print('Key Pressed')
 end)
 ```
-```text
-1.) <String> Name of the keybind.
-2.) <String> Default KeyCode.
-    1).a For Mouse Please use => "Left Mouse", "Right Mouse"
-    2).a Find all KeyCodes here: https://developer.roblox.com/en-us/api-reference/enum/KeyCode
-3.) <Function> Function / Callback of the keybind.
-```
+
+| parameters   | Type              | Information    | In-Depth Description |
+|:-------------|:------------------|:---------------|:---------------------|
+| 1            | `<String>`        | Name of the keybind. | None |
+| 2            | `<String>`        | Default Keycode. | For Mouse Bind Use "Left Mouse", "Right Mouse". Find all [KeyCodes here:](https://developer.roblox.com/en-us/api-reference/enum/KeyCode) |
+| 3            | `<Function>`        | Function / Callback. | When Keybind Is Pressed, It will fire the function, or Callback |
+
 ## Updating Keybinds
 ```lua
 Keybind:Set(Keycode)
 ```
-```text
-1.) <String> KeyCode
-    1).a Find all KeyCodes here: https://developer.roblox.com/en-us/api-reference/enum/KeyCode
-```
+
+| parameters   | Type              | Information    | In-Depth Description |
+|:-------------|:------------------|:---------------|:---------------------|
+| 1            | `<String>`        | New Keycode. | Find All [Keycodes here:](https://developer.roblox.com/en-us/api-reference/enum/KeyCode)
+
 ## Reading Keybinds
 ```lua
 Keybind:ReadKeybind()
 ```
-```text
-1.) <Output> KeyCode
-    1).a They will appear as MouseButton1 or MouseButton2 for mouse outputs. The output for regular keycodes are "A, B, C, D."
-```
+
+| parameters   | Type              | Information    | In-Depth Description |
+|:-------------|:------------------|:---------------|:---------------------|
+| 1            | `<Output>`        | Keycode. | Mouse Button will appear as MouseButton1 or MouseButton2. The output for regular keycodes are "A, B, C, D." |
 
 ## Creating Toggles
 ```lua
@@ -153,20 +167,23 @@ local Toggle = Section:CreateToggle('Toggle', true, Color3.fromRGB(0, 146, 214),
     print(Value)
 end)
 ```
-```text
-1.) <String> Name of the toggle.
-2.) <Bool> Default value of the toggle.
-3.) <Color3> Color of the toggle.
-4.) <Number> Debounce of the toggle.
-5.) <Function> Function / Callback of the toggle.
-```
+
+| parameters   | Type              | Information    | In-Depth Description |
+|:-------------|:------------------|:---------------|:---------------------|
+| 1            | `<String>`        | Name of the toggle. | None |
+| 2            | `<Bool>`        | Default value. | if true the toggle will be loaded on and it will fire the function / callback |
+| 3            | `<Color3>`        | Color of the toggle. | The color will be applied when toggled |
+| 4            | `<Number>`        | Debounce. | Time taken for the toggle animation |
+| 5            | `<Function>`        | Function / Callback. | When Toggle On / Off, It will fire the function, or Callback |
+
 ## Updating Toggles
 ```lua
 Toggle:Set(Value)
 ```
-```text
-1.) <Bool> toggle will update to on, off.
-```
+
+| parameters   | Type              | Information    | In-Depth Description |
+|:-------------|:------------------|:---------------|:---------------------|
+| 1            | `<Bool>`        | Toggle value. | Toggle can be turned on / off firing the function / callback |
 
 ## Creating Dropdowns
 ```lua
@@ -174,22 +191,24 @@ Section:CreateDropdown('Dropdown', {'Bread', 'Kitten', 'ROBLOX', 'JohnDoe', '5'}
     print(Value)
 end)
 ```
-```
-1.) <String> Name of the dropdown.
-2.) <Table> Dropdown options.
-3.) <Any> Put nil for none in the dropdown's default option. If it is not zero, it must be of the same type as the table's item; for instance, the drop-down menu is {'Kitten'}, so the Default should be 'Kitten', both strings.
-4.) <Bool> Enable Search Tool;
-5.) <Number> Debounce of the dropdown opening and closing.
-6.) <Function> Function / Callback of the dropdown.
-```
+
+| parameters   | Type              | Information    | In-Depth Description |
+|:-------------|:------------------|:---------------|:---------------------|
+| 1            | `<String>`        | Name of the dropdown. | None |
+| 2            | `<Table>`         | Dropdown List. | None |
+| 3            | `<Any>`           | Default value. | Put nil for default dropdown option, if its not zero, it must be of the same type as the table's item; for instance, the dropdown menu is {'Kitten'}, so the dropdown will be 'Kitten' Firing The Function / Callback |
+| 4            | `<Bool>`        | Enable Search Tool. | If your list its too big, you can enable this feature allowing your customers to search for items within the drop down |
+| 5            | `<Number>`        | Debounce. | The time taken for opening / closing animation |
+| 6            | `<Function>`        | Function / Callback. | When the item is selected, It will fire the function, or Callback |
 
 ## Updating Dropdowns
 ```lua
 Dropdown:UpdateDropdown({'Filter', 'Spoon', 'Fork'})
 ```
-```text
-1.) <Table> New list of dropdown options.
-```
+
+| parameters   | Type              | Information    | In-Depth Description |
+|:-------------|:------------------|:---------------|:---------------------|
+| 1            | `<Table>`        | New List. | New list's of dropdown options |
 
 ## Creating Colorpickers
 ```lua
@@ -197,45 +216,61 @@ Colorpicker = Section:CreateColorpicker('Colorpicker', Color3.fromRGB(0, 146, 21
     print(Value)
 end)
 ```
-```text
-1.) <String> Name of the colorpicker.
-2.) <Color3> Default color of the colorpicker.
-3.) <Number> Debounce of the colorpicker opening and closing.
-4.) <Function> Function / Callback of the colorpicker.
-```
+
+| parameters   | Type              | Information    | In-Depth Description |
+|:-------------|:------------------|:---------------|:---------------------|
+| 1            | `<String>`        | Name of the Colorpicker. | None |
+| 2            | `<Color3>`        | Default Color. | Colorpicker will be loaded and firing the Function / Callback with the given Color |
+| 3            | `<Number>`        | Debounce. | Time taken for the opening  closing animation |
+| 4            | `<Function>`        | Function / Callback. | When Color is slided, It will fire the function, or Callback |
+
 ## Updating Colorpicker
 ```lua
 Colorpicker:Set(Color3)
 ```
-```text
-1.) <Color> Color3.fromRGB(255,255,255)
-```
+
+| parameters   | Type              | Information    | In-Depth Description |
+|:-------------|:------------------|:---------------|:---------------------|
+| 1            | `<Color3>`        | New Color. | example : Color3.fromRGB(255,255,255) |
 
 ## Creating Images
 ```lua
 local Image = Section:CreateImage('Name', 'rbxassetid://11912754017', UDim2.new(0, 250, 0, 250))
 ```
-```text
-Show an image.
-1.) <String> Name of the Image.
-2.) <String> Asset ID.
-3.) <UDim2> The size that the image should be.
-```
+
+| parameters   | Type              | Information    | In-Depth Description |
+|:-------------|:------------------|:---------------|:---------------------|
+| 1            | `<String>`        | Name of the Image. | None |
+| 2            | `<String>`        | Asset Id. | None |
+| 3            | `<UDim2>`         | Size. | None |
 
 ## Updating Images
 ```lua
 Image:UpdateImage('rbxassetid://11912754017', UDim2.new(0, 200, 0, 200))
 ```
-```text
-1.) <String> New Asset ID.
-2.) <UDim2> The size that the image should be changed to.
-```
+
+| parameters   | Type              | Information    | In-Depth Description |
+|:-------------|:------------------|:---------------|:---------------------|
+| 1            | `<String>`        | New Asset Id. | None |
+| 2            | `<UDim2>`         | New Size. | None |
 
 ## Creating Notifications
 creates a variety of Notifications on the side of the screen.
 ```lua
 Library:CreateNotification('Notification Title', 'Notification Text', 5)
 ```
+
+| parameters   | Type              | Information    | In-Depth Description |
+|:-------------|:------------------|:---------------|:---------------------|
+| 1            | `<String>`        | EE. | None |
+| 2            | `<String>`        | EE. | None |
+| 3            | `<Number>`        | EE. | None |
+| 4            | `<String>`        | EE. | None |
+| 5            | `<Number>`        | EE. | None |
+| 6            | `<String>`        | EE. | None |
+| 7            | `<Number>`        | EE. | None |
+| 8            | `<Function>`      | EE. | EE It will fire the function, or Callback |
+
 ```text
 1.) <String> Title of the notification.
 2.) <String> The text of the notification.
