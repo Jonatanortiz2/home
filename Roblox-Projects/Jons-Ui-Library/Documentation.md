@@ -170,16 +170,17 @@ Toggle:Set(Value)
 
 ## Creating Dropdowns
 ```lua
-Section:CreateDropdown('Dropdown', {'Bread', 'Kitten', 'ROBLOX', 'JohnDoe', '5'}, 'Kitten', 0.25, function(Value)
+Section:CreateDropdown('Dropdown', {'Bread', 'Kitten', 'ROBLOX', 'JohnDoe', '5'}, 'Kitten', false, 0.25, function(Value)
     print(Value)
 end)
 ```
-```text
+```
 1.) <String> Name of the dropdown.
 2.) <Table> Dropdown options.
 3.) <Any> Put nil for none in the dropdown's default option. If it is not zero, it must be of the same type as the table's item; for instance, the drop-down menu is {'Kitten'}, so the Default should be 'Kitten', both strings.
-4.) <Number> Debounce of the dropdown opening and closing.
-5.) <Function> Function / Callback of the dropdown.
+4.) <Bool> Enable Search Tool;
+5.) <Number> Debounce of the dropdown opening and closing.
+6.) <Function> Function / Callback of the dropdown.
 ```
 
 ## Updating Dropdowns
@@ -387,7 +388,7 @@ local UpdatesSection = Updates:CreateSection('Updates')
 local Label = Section:CreateLabel('Label')
 local Paragraph = Section:CreateParagraph('Paragraph', 'Content')
 
-local Drop = UpdatesSection:CreateDropdown('Dropdown', {'PlayerUndefined1', 'PlayerUndefined2', 'PlayerUndefined3', 'PlayerUndefined4', 'PlayerUndefined5'}, 'PlayerUndefined1', 0.25, function(Value)
+local Drop = UpdatesSection:CreateDropdown('Dropdown', {'PlayerUndefined1', 'PlayerUndefined2', 'PlayerUndefined3', 'PlayerUndefined4', 'PlayerUndefined5'}, 'PlayerUndefined1', true, 0.25, function(Value)
     print(Value)
 end)
 UpdatesSection:CreateButton('Update Players', function()
@@ -418,7 +419,7 @@ end)
 Section:CreateToggle('Toggle', true, Color3.fromRGB(0, 146, 214), 0.25, function(Value)
     print(Value)
 end)
-Section:CreateDropdown('Dropdown', {'Bread', 'Kitten', 'ROBLOX', 'JohnDoe', '5'}, 'Kitten', 0.25, function(Value)
+Section:CreateDropdown('Dropdown', {'Bread', 'Kitten', 'ROBLOX', 'JohnDoe', '5'}, 'Kitten', false, 0.25, function(Value)
     print(Value)
 end)
 Colorpicker = Section:CreateColorpicker('Colorpicker', Color3.fromRGB(0, 146, 214), 0.25, function(Value)
