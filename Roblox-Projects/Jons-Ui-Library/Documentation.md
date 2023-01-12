@@ -27,16 +27,16 @@ local Tab = Window:CreateTab('Tab', true, 'rbxassetid://4483362458', Vector2.new
 | 1            | `<String>`        | Name of the tab. | None |
 | 2            | `<Bool>`          | Tab visibility.  | When the GUI loads, just the enabled tab will be visible if all other tabs are disabled |
 | 3            | `<String>`        | Tab Image URL | None |
-| 4            | `<Vector2>`       | Tab image rectoffset | | None |
-| 5            | `<Vector2>`       | Tab image rectsize | | None |
+| 4            | `<Vector2>`       | Tab image rectoffset | None |
+| 5            | `<Vector2>`       | Tab image rectsize | None |
 
 ## Creating Sections
 ```lua
 local Section = Tab:CreateSection('Section')
 ```
-```text
-1.) <String> Name of the section.
-```
+| parameters   | Type              | Description    | In-Depth Description |
+|:-------------|:------------------|:---------------|:---------------------|
+| 1            | `<String>`        | Name of the section. | None |
 
 ## Creating Labels
 ```lua
