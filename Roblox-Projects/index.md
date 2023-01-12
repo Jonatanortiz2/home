@@ -49,7 +49,7 @@ Jon's Library it's an awesome library packed with a bunch of features;
 - [x] Universal Search Tool
 - [x] Universal Save Configs (So that you dont have to!)
 
-# Coming Soon [BAC](Jons-Ui-Library)
+# [Coming Soon BAC V2.0](Jons-Ui-Library)
 
 #### What's BAC?
 
@@ -57,7 +57,7 @@ It only took about 12 days to create the custom script known as BAC, which allow
 the game (legitly or with fury).
 Developed for [Assassin](https://www.roblox.com/games/379614936/Assassin).
 
-# Coming Soon [Ai Assist](Jons-Ui-Library)
+# [Coming Soon Ai Assist V2.0](Jons-Ui-Library)
 
 #### What's Ai Assist?
 
@@ -65,7 +65,7 @@ Ai Assist is a script that I created for individuals whose privacy is crucial. T
 for really legitimate play, and it makes it impossible to distinguish between hacking and legitimacy.
 Developed for [Assassin](https://www.roblox.com/games/379614936/Assassin).
 
-# Coming Soon [Laser X](Jons-Ui-Library)
+# [Coming Soon Laser X V2.0](Jons-Ui-Library)
 
 #### What's DraxWare?
 
