@@ -14,8 +14,8 @@ local Library = loadstring(game:HttpGet('https://raw.githubusercontent.com/Jonat
 local Window = Library:CreateWindow('Hub Name', false)
 ```
 | parameters   | Type              | Information    | In-Depth Description |
-|:-------------|:------------------|:---------------|:---------------------|
-| 1            | `<String>`        | Name of the Ui | None |
+|:-------------|:------------------|:----------------------|:---------------------|
+| 1            | `<String>`        | Name of the Ui        | None                 |
 | 2            | `<Bool>`          | Disable Custom Themes | if true, themes will be disabled, if false, themes will be enabled (this setting is to increase performance) |
 
 ## Creating Tabs
