@@ -129,7 +129,7 @@ end)
 |:-------------|:------------------|:---------------|:---------------------|
 | 1            | `<String>`        | Name of the textbox. | None |
 | 2            | `<String>`        | Placeholder Text. | None |
-| 3            | `<Function>`        | Function / Callback. | When thext is set it will fire the function, or Callback |
+| 3            | `<Function>`        | Function / Callback. | When the text is set, it will fire the function or Callback |
 
 ## Creating Keybinds
 ```lua
