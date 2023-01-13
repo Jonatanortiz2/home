@@ -62,7 +62,7 @@ the game (legitly or with fury).
 
 Developed for [Assassin](https://www.roblox.com/games/379614936/Assassin).
 
-# [Coming Soon Ai Assist V2.0](Ai-Assist-V2.0)
+# !![Preview] [Ai Assist V2.0](Ai-Assist-V2.0)
 
 #### What's Ai Assist?
 
