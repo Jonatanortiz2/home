@@ -2,7 +2,7 @@
 
 -- // Jon's Ui Library !
 local LibraryName = 'Jon\'s-Ui-Library';
-local ConfigFolder = nil;
+
 local StartTick = tick();
 -- // Services
 local Services=setmetatable({},{__index=function(b,c)return game:GetService(c)end})
@@ -1122,7 +1122,7 @@ function Library:DeleteConfig(Name)
 end
 
 function Library:GetConfigs()
-	if isfolder(ConfigF) and ConfigFolder ~= nil then
+	if isfolder(ConfigF) and not ConfigFolder == nil then
 		local Configs = listfiles(ConfigF)
 		local Table = {}
 		for Index, Value in next, Configs do
