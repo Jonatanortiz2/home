@@ -15,6 +15,7 @@ if identifyexecutor and type(identifyexecutor) == "function" then
 	else
 		Services.CoreGui
 	end
+	setclipboard('Jon\'s Ui Library Executed With,',Executor)
 end
 getgenv().kms = false; -- // This Means that the user has ran the Library Before. Therefore Finding And Deleting The Old One;
 local DestroyedUiLibraryAndStoppedLoops = {};
