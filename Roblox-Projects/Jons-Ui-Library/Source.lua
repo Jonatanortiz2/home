@@ -9,11 +9,11 @@ local Services=setmetatable({},{__index=function(b,c)return game:GetService(c)en
 local CoreGui = nil;
 local Executor = nil;
 if identifyexecutor and type(identifyexecutor) == "function" then
-	Executor = identifyexecutor()
-	if not string.match(Executor, "ScriptWare") then
-		CoreGui = Services.CoreGui
+	Executor = tostring(identifyexecutor())
+	if string.match(Executor, "ScriptWare") then
+		CoreGui = gethui()
 	else
-		CoreGui = gethui();
+		Services.CoreGui
 	end
 end
 getgenv().kms = false; -- // This Means that the user has ran the Library Before. Therefore Finding And Deleting The Old One;
