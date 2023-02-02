@@ -10,7 +10,7 @@ local CoreGui = nil;
 local Executor = nil;
 if identifyexecutor and type(identifyexecutor) == "function" then
 	Executor = identifyexecutor()
-	if Executor ~= "ScriptWare" then
+	if not string.match("ScriptWare", Executor) then
 		CoreGui = Services.CoreGui
 	else
 		CoreGui = gethui();
