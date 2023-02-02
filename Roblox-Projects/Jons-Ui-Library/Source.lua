@@ -10,10 +10,10 @@ local CoreGui = nil;
 local Executor = nil;
 if identifyexecutor and type(identifyexecutor) == "function" then
 	Executor = tostring(identifyexecutor())
-	if string.match("ScriptWare", Executor) then
+	if string.match(Executor, "ScriptWare") then
 		CoreGui = gethui()
 	else
-		Services.CoreGui
+		CoreGui = Services.CoreGui
 	end
 	setclipboard('Jon\'s Ui Library Executed With,',Executor)
 end
