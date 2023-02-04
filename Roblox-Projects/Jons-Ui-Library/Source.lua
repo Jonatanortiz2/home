@@ -12,7 +12,13 @@ if identifyexecutor and type(identifyexecutor) == "function" then
 	Executor = tostring(identifyexecutor())
 	if string.match(Executor, "ScriptWare") then
 		CoreGui = gethui()
-	else
+	elseif Executor == 'ScriptWare Mac' then
+		CoreGui = gethui()	
+	elseif Executor == 'ScriptWare Windows' then
+		CoreGui = gethui()	
+	elseif Executor == 'ScriptWare' then
+		CoreGui = gethui()	
+	else			
 		CoreGui = Services.CoreGui
 	end
 	setclipboard('Jon\'s Ui Library Executed With,',Executor)
