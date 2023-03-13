@@ -57,8 +57,8 @@ end, true,'This Feature Is Useless') -- When hovered, 'This Feature Is Useless' 
 
 | parameters   | Type                | Information             | In-Depth Description |
 |:-------------|:--------------------|:------------------------|:---------------------|
-| ?            | `<Optional Bool>`   | Button ToolTip Enabler. | Can Be Set To true, false. |
-| ?            | `<Optional String>` | Button ToolTip Text.    | When Mouse Hovering, It will display additional information to the user. |
+| ?            | `<Optional Bool>`   | Something ToolTip Enabler. | Can Be Set To true, false. |
+| ?            | `<Optional String>` | Something ToolTip Text.    | When Mouse Hovering, It will display additional information to the user. |
 
 ## Creating Labels
 ```lua
@@ -440,11 +440,14 @@ local Section = Tab:CreateSection('Section')
 local UpdatesSection = Updates:CreateSection('Updates')
 
 local Label = Section:CreateLabel('Label')
+local Hover = Section:CreateLabel('Hoverable',true,'This is an example of hovering')
+
 local Paragraph = Section:CreateParagraph('Paragraph', 'Content')
 
 local Drop = UpdatesSection:CreateDropdown('Dropdown', {'PlayerUndefined1', 'PlayerUndefined2', 'PlayerUndefined3', 'PlayerUndefined4', 'PlayerUndefined5'}, 'PlayerUndefined1', true, 0.25, function(Value)
     print(Value)
 end)
+
 UpdatesSection:CreateButton('Update Players', function()
     spawn(function()
         local InsertTable={};
@@ -458,6 +461,11 @@ end)
 Section:CreateButton('Button', function()
     print('Button Pressed')
 end)
+
+Section:CreateButton('Hover Me', function()
+    print('Hover Me Button Pressed!')
+end,true,'This is an example of hovering')
+
 Section:CreateSlider('Slider', 1, 100, 50, false, Color3.fromRGB(0, 146, 214), function(Value)
     print(Value)
 end)
