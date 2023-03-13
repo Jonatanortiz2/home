@@ -41,6 +41,24 @@ local Section = Tab:CreateSection('Section')
 |:-------------|:------------------|:---------------|:---------------------|
 | 1            | `<String>`        | Name of the section. | None |
 
+## Tool Tips
+Can Be Set To, Labels, Paragraphs, Buttons, SLiders, TextBoxes, Keybinds, Toggles, And Dropdowns.
+```lua
+-- [[
+    Can Be Set At The End Of Parameters of Shown Above Settings.
+]]
+
+something:CreateSomething(args1,args2,'arg3',true,'This Feature Is Useless') -- When hovered, 'This Feature Is Useless' will be shown at users pointer.
+
+something:CreateSomething('args1',args2,function(args3)
+
+end, true,'This Feature Is Useless') -- When hovered, 'This Feature Is Useless' will be shown at users pointer.
+```
+| parameters   | Type              | Information    | In-Depth Description |
+|:-------------|:------------------|:---------------|:---------------------|
+| ?            | `<Optional Bool>`        | Button ToolTip Enabler. | Can Be Set To true, false. |
+| ?            | `<Optional String>`        | Button ToolTip Text. | WHen Mouse Hovering, It will display additional information to the user. |
+
 ## Creating Labels
 ```lua
 local Label = Section:CreateLabel('Label')
@@ -90,7 +108,6 @@ end)
 |:-------------|:------------------|:---------------|:---------------------|
 | 1            | `<String>`        | Name of the button. | None |
 | 2            | `<Function>`        | Function / Callback. | When Pressed, The button will fire the function, or Callback |
-
 
 ## Creating Sliders
 ```lua
