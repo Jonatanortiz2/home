@@ -42,7 +42,7 @@ local Section = Tab:CreateSection('Section')
 | 1            | `<String>`        | Name of the section. | None |
 
 ## Tool Tips
-Can Be Set To, Labels, Paragraphs, Buttons, SLiders, TextBoxes, Keybinds, Toggles, And Dropdowns.
+Can Be Set To, Labels, Paragraphs, Buttons, Sliders, TextBoxes, Keybinds, Toggles, And Dropdowns.
 ```lua
 -- [[
     Can Be Set At The End Of Parameters of Shown Above Settings.
@@ -57,7 +57,7 @@ end, true,'This Feature Is Useless') -- When hovered, 'This Feature Is Useless' 
 | parameters   | Type              | Information    | In-Depth Description |
 |:-------------|:------------------|:---------------|:---------------------|
 | ?            | `<Optional Bool>`        | Button ToolTip Enabler. | Can Be Set To true, false. |
-| ?            | `<Optional String>`        | Button ToolTip Text. | WHen Mouse Hovering, It will display additional information to the user. |
+| ?            | `<Optional String>`        | Button ToolTip Text. | When Mouse Hovering, It will display additional information to the user. |
 
 ## Creating Labels
 ```lua
