@@ -47,11 +47,12 @@ Jon's Library it's an awesome library packed with a bunch of features;
  
 #### Ui
 
+- [x] ToolTips
 - [x] Change Themes
 - [x] Universal Search Tool
 - [x] Universal Save Configs (So that you dont have to!)
 
-Developed for [All](https://www.roblox.com/discover#/).
+Developed for [Any Roblox Experience](https://www.roblox.com/discover#/).
 
 # [Coming Soon BAC V2.0](BAC-V2.0)
 
