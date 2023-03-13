@@ -3412,7 +3412,7 @@ function Library:CreateWindow(HubName, GameName)
 							BackgroundTransparency = 0,
 							BorderSizePixel = 0,
 							Size = UDim2.new(0, 410, 0, 25),
-							PlaceholderText = '[!] Search for elements on this section...',
+							PlaceholderText = '[!] Search for elements on this Dropdown...',
 							Font = Enum.Font.Gotham,
 							PlaceholderColor3 = Theme.SecondaryTextColor,
 							TextColor3 = Theme.SecondaryTextColor,
