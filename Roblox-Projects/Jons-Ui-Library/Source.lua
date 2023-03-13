@@ -21,7 +21,6 @@ if identifyexecutor and type(identifyexecutor) == "function" then
 	else			
 		CoreGui = Services.CoreGui
 	end
-	setclipboard('Jon\'s Ui Library Executed With,',Executor)
 end
 getgenv().kms = false; -- // This Means that the user has ran the Library Before. Therefore Finding And Deleting The Old One;
 local DestroyedUiLibraryAndStoppedLoops = {};
@@ -1142,7 +1141,7 @@ end
 
 function Library:CreateWindow(HubName, GameName)
 	local ImprovePerformance = GameName
-	local IntroText = ''..tostring(LibraryName)..' Created By 😴Jonathan💤#9341'
+	local IntroText = ''..tostring(LibraryName)..' By Jon.#9341'
 	local IntroIcon = 'rbxassetid://11912754017'
 	wait()
 	local GameName = Services.MarketplaceService:GetProductInfo(game.PlaceId).Name
@@ -2022,7 +2021,130 @@ function Library:CreateWindow(HubName, GameName)
 			Section.ChildAdded:Connect(UpdateSectionSize)
 			Section.ChildRemoved:Connect(UpdateSectionSize)
 
-			function Elements:CreateLabel(LabelText)
+            function CreateToolTip(GotActualSection,InPutName,IsHolder,IsToolTip,ToolTipLabelText)
+                spawn(function()
+                    local Enabled = IsToolTip or false;
+                    local ToolTipText = ToolTipLabelText or 'NoInput';
+                    local TTName = tostring(InPutName) or 'n/a';
+                    local Holder = tostring(IsHolder) or 'n/a';
+                    
+                    --[[
+                        ToolTip
+                    ]]
+                    local ActualSection = GotActualSection or nil;
+
+                    if Enabled == true and ToolTipText ~= 'NoInput' and ActualSection ~= nil then
+                        repeat
+                            wait()
+                        until ActualSection[TTName..Holder];
+
+                        Utility:Create('Frame', {
+                            Name = TTName..'TooltipFrame',
+                            Parent = ActualSection[TTName..Holder],
+                            BackgroundColor3 = Theme.BackgroundColor,
+                            BackgroundTransparency = 0.5,
+                            Size = UDim2.new(0, TextService:GetTextSize(ToolTipText, 10, Enum.Font.Gotham, Vector2.new(math.huge, math.huge)).X + 10, 0, 20),
+                            Position = UDim2.new(0, 10, 1, 5),
+                            Visible = false
+                        }, {
+                            Utility:Create('UICorner', {
+                                CornerRadius = UDim.new(0, 5),
+                                Name = TTName..'TooltipCorner'
+                            }),
+                            Utility:Create('UIStroke', {
+                                Name = TTName..'TooltipStroke',
+                                ApplyStrokeMode = 'Contextual',
+                                Color = Theme.UIStrokeColor,
+                                LineJoinMode = 'Round',
+                                Thickness = 1
+                            }),
+                            Utility:Create('UIListLayout', {
+                                Name = 'TooltipListLayout',
+                                Padding = UDim.new(0, 5),
+                                FillDirection = Enum.FillDirection.Horizontal,
+                                HorizontalAlignment = Enum.HorizontalAlignment.Left,
+                                SortOrder = Enum.SortOrder.LayoutOrder,
+                                VerticalAlignment = Enum.VerticalAlignment.Top
+                            }),
+                            Utility:Create('TextLabel', {
+                                Name = TTName..'TooltipText',
+                                BackgroundColor3 = Theme.BackgroundColor,
+                                BackgroundTransparency = 1,
+                                Size = UDim2.new(1, 0, 1, 0),
+                                Font = Enum.Font.Gotham,
+                                TextColor3 = Theme.SecondaryTextColor,
+                                TextSize = 10,
+                                Text = ToolTipText,
+                                TextXAlignment = Enum.TextXAlignment.Left
+                            }, {
+                                Utility:Create('UICorner', {
+                                    CornerRadius = UDim.new(0, 5),
+                                    Name = TTName..'TooltipLabelCorner'
+                                }),
+                                Utility:Create('UIPadding', {
+                                    Name = TTName..'TooltipLabelPadding',
+                                    PaddingLeft = UDim.new(0, 7)
+                                })
+                            })
+                        })
+
+                        repeat
+                            wait()
+                        until ActualSection[TTName..Holder][TTName..'TooltipFrame']
+                        
+                        local MouseIsFocused = false
+                        local PlayersMouse = Services.Players.LocalPlayer:GetMouse();
+                        local LastTextBoxLocation = UDim2.new(0,0,0,0);
+
+                        local GetMouseUDim2 = function()
+                            local Position = Vector2.new(PlayersMouse.X, PlayersMouse.Y) - ActualSection.AbsolutePosition
+
+                            return UDim2.fromOffset(Position.X, 0, Position.Y, 0)
+                        end
+
+                        ActualSection[TTName..Holder].MouseEnter:Connect(function()
+                            MouseIsFocused = true
+                            ActualSection[TTName..Holder][TTName..'TooltipFrame'].Visible = true
+                            ActualSection[TTName..Holder][TTName..'TooltipFrame']:TweenPosition(
+                                GetMouseUDim2(),
+                                Enum.EasingDirection.Out,
+                                Enum.EasingStyle.Quint,
+                                0.3,
+                                true
+                            )
+                        end)
+                        PlayersMouse.Move:Connect(function()
+                            if MouseIsFocused == true then
+                                LastTextBoxLocation = GetMouseUDim2();
+                                ActualSection[TTName..Holder][TTName..'TooltipFrame']:TweenPosition(
+                                    GetMouseUDim2(),
+                                    Enum.EasingDirection.Out,
+                                    Enum.EasingStyle.Quint,
+                                    0.3,
+                                    true
+                                )
+                            end
+                        end)
+                        ActualSection[TTName..Holder].MouseLeave:Connect(function()
+                            MouseIsFocused = false
+                            wait(.05)
+                            ActualSection[TTName..Holder][TTName..'TooltipFrame']:TweenPosition(
+                                LastTextBoxLocation,
+                                Enum.EasingDirection.Out,
+                                Enum.EasingStyle.Quint,
+                                0.3,
+                                true
+                            )
+                            ActualSection[TTName..Holder][TTName..'TooltipFrame'].Visible = false
+                        end)
+                    end
+                end)
+            end
+
+			function Elements:CreateLabel(LabelText, IsToolTip, ToolTipLabelText)
+                local Enabled = IsToolTip or false;
+                local ToolTipText = ToolTipLabelText or 'NoInput';
+                CreateToolTip(Section,LabelText, 'LabelHolder', Enabled, ToolTipText);
 				local LabelText = LabelText or 'Label'
 				local LabelFunctions = {}
 
@@ -2067,7 +2189,7 @@ function Library:CreateWindow(HubName, GameName)
 				})
 
 				UpdateSectionSize()
-
+                
 				if not ImprovePerformance then
 					spawn(function()
 						while wait() do
@@ -2091,7 +2213,10 @@ function Library:CreateWindow(HubName, GameName)
 				return LabelFunctions
 			end
 
-			function Elements:CreateParagraph(Title, Paragraph)
+			function Elements:CreateParagraph(Title, Paragraph, IsToolTip, ToolTipLabelText)
+                local Enabled = IsToolTip or false;
+                local ToolTipText = ToolTipLabelText or 'NoInput';
+                CreateToolTip(Section,Title, 'ParagraphHolder', Enabled, ToolTipText);
 				local Title = Title or 'Title'
 				local Paragraph = Paragraph or 'Text'
 				local ParagraphFunctions = {}
@@ -2157,6 +2282,7 @@ function Library:CreateWindow(HubName, GameName)
 						})
 					})
 				})
+
 				local Old
 				local ParagraphHolder = Section[Title..'ParagraphHolder']
 				local ParagraphContent = Section[Title..'ParagraphHolder'][Title..'ParagraphContent']
@@ -2216,7 +2342,10 @@ function Library:CreateWindow(HubName, GameName)
 				return ParagraphFunctions
 			end
 
-			function Elements:CreateButton(Name, Callback)
+			function Elements:CreateButton(Name, Callback, IsToolTip, ToolTipLabelText)
+                local Enabled = IsToolTip or false;
+                local ToolTipText = ToolTipLabelText or 'NoInput';
+                CreateToolTip(Section,Name, 'ButtonHolder', Enabled, ToolTipText);
 				local Name = Name or 'Button'
 				local Callback = Callback or function() end
 				local Hovering = false
@@ -2274,7 +2403,7 @@ function Library:CreateWindow(HubName, GameName)
 				})
 
 				UpdateSectionSize()
-
+ 
 				local ButtonHolder = Section[Name..'ButtonHolder']
 				local Button = ButtonHolder[Name..'Button']
 
@@ -2321,7 +2450,10 @@ function Library:CreateWindow(HubName, GameName)
 				end)
 			end
 
-			function Elements:CreateSlider(Name, MinimumValue, MaximumValue, DefaultValue, Boolean, SliderColor, Callback)
+			function Elements:CreateSlider(Name, MinimumValue, MaximumValue, DefaultValue, Boolean, SliderColor, Callback, IsToolTip, ToolTipLabelText)
+                local Enabled = IsToolTip or false;
+                local ToolTipText = ToolTipLabelText or 'NoInput';
+                CreateToolTip(Section,Name, 'SliderHolder', Enabled, ToolTipText);
 				local Name = Name or 'Slider'
 				local MinimumValue = MinimumValue or 1
 				local MaximumValue = MaximumValue or 100
@@ -2579,7 +2711,10 @@ function Library:CreateWindow(HubName, GameName)
 				return SliderFunctions
 			end
 
-			function Elements:CreateTextbox(Name, Placeholder, Callback)
+			function Elements:CreateTextbox(Name, Placeholder, Callback, IsToolTip, ToolTipLabelText)
+                local Enabled = IsToolTip or false;
+                local ToolTipText = ToolTipLabelText or 'NoInput';
+                CreateToolTip(Section,Name, 'TextboxHolder', Enabled, ToolTipText);
 				local Name = Name or 'Textbox'
 				local Placeholder = Placeholder or 'Input'
 				local Callback = Callback or function() end
@@ -2730,7 +2865,10 @@ function Library:CreateWindow(HubName, GameName)
 				end)
 			end
 
-			function Elements:CreateKeybind(Name, Key, Callback)
+			function Elements:CreateKeybind(Name, Key, Callback, IsToolTip, ToolTipLabelText)
+                local Enabled = IsToolTip or false;
+                local ToolTipText = ToolTipLabelText or 'NoInput';
+                CreateToolTip(Section,Name, 'KeybindHolder', Enabled, ToolTipText);
 				local Name = Name or 'Keybind'
 				local Key = Key or 'E'
 				local Callback = Callback or function() end
@@ -2942,7 +3080,10 @@ function Library:CreateWindow(HubName, GameName)
 				return KeybindFunctions
 			end
 
-			function Elements:CreateToggle(Name, Default, ToggleColor, DebounceAmount, Callback)
+			function Elements:CreateToggle(Name, Default, ToggleColor, DebounceAmount, Callback, IsToolTip, ToolTipLabelText)
+                local Enabled = IsToolTip or false;
+                local ToolTipText = ToolTipLabelText or 'NoInput';
+                CreateToolTip(Section,Name, 'ToggleHolder', Enabled, ToolTipText);
 				local Name = Name or 'Toggle'
 				local Default = Default or false
 				local Callback = Callback or function() end
@@ -3162,7 +3303,10 @@ function Library:CreateWindow(HubName, GameName)
 				return ToggleFunctions
 			end
 
-			function Elements:CreateDropdown(Name, List, Default, EnableSearchTool, DebounceAmount, Callback)
+			function Elements:CreateDropdown(Name, List, Default, EnableSearchTool, DebounceAmount, Callback, IsToolTip, ToolTipLabelText)
+                local Enabled = IsToolTip or false;
+                local ToolTipText = ToolTipLabelText or 'NoInput';
+                CreateToolTip(Section,Name, 'DropdownHolder', Enabled, ToolTipText);
 				local Name = Name or 'Dropdown'
 				local List = List or {}
 				local Callback = Callback or function() end
