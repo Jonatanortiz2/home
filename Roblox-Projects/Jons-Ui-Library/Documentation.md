@@ -54,10 +54,11 @@ something:CreateSomething('args1',args2,function(args3)
     dosomething()
 end, true,'This Feature Is Useless') -- When hovered, 'This Feature Is Useless' will be shown at users pointer.
 ```
-| parameters   | Type              | Information    | In-Depth Description |
-|:-------------|:------------------|:---------------|:---------------------|
-| ?            | `<Optional Bool>`        | Button ToolTip Enabler. | Can Be Set To true, false. |
-| ?            | `<Optional String>`        | Button ToolTip Text. | When Mouse Hovering, It will display additional information to the user. |
+
+| parameters   | Type                | Information             | In-Depth Description |
+|:-------------|:--------------------|:------------------------|:---------------------|
+| ?            | `<Optional Bool>`   | Button ToolTip Enabler. | Can Be Set To true, false. |
+| ?            | `<Optional String>` | Button ToolTip Text.    | When Mouse Hovering, It will display additional information to the user. |
 
 ## Creating Labels
 ```lua
