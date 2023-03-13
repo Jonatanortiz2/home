@@ -48,10 +48,10 @@ Can Be Set To, Labels, Paragraphs, Buttons, Sliders, TextBoxes, Keybinds, Toggle
     Can Be Set At The End Of Parameters of Shown Above Settings.
 ]]
 
-something:CreateSomething(args1,args2,'arg3',true,'This Feature Is Useless') -- When hovered, 'This Feature Is Useless' will be shown at users pointer.
+something:CreateSomething(args1,args2,'args3',true,'This Feature Is Useless') -- When hovered, 'This Feature Is Useless' will be shown at users pointer.
 
 something:CreateSomething('args1',args2,function(args3)
-
+    dosomething()
 end, true,'This Feature Is Useless') -- When hovered, 'This Feature Is Useless' will be shown at users pointer.
 ```
 | parameters   | Type              | Information    | In-Depth Description |
