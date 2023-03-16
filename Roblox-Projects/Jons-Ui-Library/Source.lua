@@ -1076,35 +1076,56 @@ function Library:SaveConfig(Name)
 	end
 end
 
-function Library:LoadConfig(Name)
+function Library:LoadConfig(Name,SkipDialog)
 	if isfile(ConfigF..'/'..Name..'.json') then
-		Library:CreatePrompt('TwoButton', 'Load Config', 'Are you sure you want to load this config?', {
-			'Yes',
-			function()
-				local Config = readfile(ConfigF..'/'..Name..'.json')
-				local Table = HttpService:JSONDecode(Config)
-				for Index, Value in next, Table do
-					if Index == 'Theme_4z3s4QrUhfqt703FmiAe' then
-						local DecodedTheme = HttpService:JSONDecode(Value)
-						local UpdatedTable = {}
-						for NewIndex, NewValue in next, DecodedTheme do
-							UpdatedTable[NewIndex] = Color3.fromRGB(NewValue[1], NewValue[2], NewValue[3])
-						end
-						Library:ChangeTheme(UpdatedTable)
-					elseif type(Value) == 'table' then
-						local New = Color3.fromRGB(Value[1] * 255, Value[2] * 255, Value[3] * 255)
-						ConfigUpdates[Index]:Set(New)
-					else
-						ConfigUpdates[Index]:Set(Value)
+		if SkipDialog ~= nil and SkipDialog == true then
+			local Config = readfile(ConfigF..'/'..Name..'.json')
+			local Table = HttpService:JSONDecode(Config)
+			for Index, Value in next, Table do
+				if Index == 'Theme_4z3s4QrUhfqt703FmiAe' then
+					local DecodedTheme = HttpService:JSONDecode(Value)
+					local UpdatedTable = {}
+					for NewIndex, NewValue in next, DecodedTheme do
+						UpdatedTable[NewIndex] = Color3.fromRGB(NewValue[1], NewValue[2], NewValue[3])
 					end
+					Library:ChangeTheme(UpdatedTable)
+				elseif type(Value) == 'table' then
+					local New = Color3.fromRGB(Value[1] * 255, Value[2] * 255, Value[3] * 255)
+					ConfigUpdates[Index]:Set(New)
+				else
+					ConfigUpdates[Index]:Set(Value)
 				end
-				Library:CreateNotification('Config Loaded', 'Successfully loaded your config with the name, \''..Name..'.json'..'\'.', 5)
-			end,
-			'No',
-			function()
-				Library:CreateNotification('Config Not Loaded', 'Config was not loaded.', 5)
 			end
-		})
+			Library:CreateNotification('Config Loaded', 'Successfully loaded your config with the name, \''..Name..'.json'..'\'.', 5)
+		else
+			Library:CreatePrompt('TwoButton', 'Load Config', 'Are you sure you want to load this config?', {
+				'Yes',
+				function()
+					local Config = readfile(ConfigF..'/'..Name..'.json')
+					local Table = HttpService:JSONDecode(Config)
+					for Index, Value in next, Table do
+						if Index == 'Theme_4z3s4QrUhfqt703FmiAe' then
+							local DecodedTheme = HttpService:JSONDecode(Value)
+							local UpdatedTable = {}
+							for NewIndex, NewValue in next, DecodedTheme do
+								UpdatedTable[NewIndex] = Color3.fromRGB(NewValue[1], NewValue[2], NewValue[3])
+							end
+							Library:ChangeTheme(UpdatedTable)
+						elseif type(Value) == 'table' then
+							local New = Color3.fromRGB(Value[1] * 255, Value[2] * 255, Value[3] * 255)
+							ConfigUpdates[Index]:Set(New)
+						else
+							ConfigUpdates[Index]:Set(Value)
+						end
+					end
+					Library:CreateNotification('Config Loaded', 'Successfully loaded your config with the name, \''..Name..'.json'..'\'.', 5)
+				end,
+				'No',
+				function()
+					Library:CreateNotification('Config Not Loaded', 'Config was not loaded.', 5)
+				end
+			})
+		end
 	else
 		Library:CreateNotification('Config Not Loaded', 'Config doesn\'t exist.', 5)
 	end
@@ -1139,9 +1160,8 @@ function Library:GetConfigs()
 	end
 end
 
-function Library:CreateWindow(HubName, GameName)
-	local ImprovePerformance = GameName
-	local IntroText = ''..tostring(LibraryName)..' By Jon.#9341'
+function Library:CreateWindow(HubName, GotImprovePerformance)
+	local ImprovePerformance = GotImprovePerformance
 	local IntroIcon = 'rbxassetid://11912754017'
 	wait()
 	local GameName = Services.MarketplaceService:GetProductInfo(game.PlaceId).Name
@@ -1213,79 +1233,373 @@ function Library:CreateWindow(HubName, GameName)
 			BackgroundColor3 = Theme.BackgroundColor,
 			BorderSizePixel = 0,
 			BackgroundTransparency = 1,
-			Position = UDim2.new(0, 595, 0, 150),
-			Size = UDim2.new(0, 0, 0, 0)
+			AnchorPoint = Vector2.new(0.5, 0.5),
+			Position = UDim2.new(0.5, 0, 0.5, 0),
+			Size = UDim2.new(0, 0, 0, 0),
 		}, {
+			Utility:Create('Frame', {
+				Name = 'MainGradient',
+				BackgroundColor3 = Color3.new(255,255,255),
+				BorderSizePixel = 0,
+				BackgroundTransparency = 1,
+				AnchorPoint = Vector2.new(0.5, 0.5),
+				Position = UDim2.new(0.5, 0, 0.5, 0),
+				Size = UDim2.new(0, 0, 0, 0),
+				ZIndex = -1
+			}, {
+				Utility:Create('UICorner', {
+					CornerRadius = UDim.new(0, 5),
+					Name = 'MainCorner'
+				}),
+				Utility:Create('UIGradient', {
+					Color = ColorSequence.new({
+						ColorSequenceKeypoint.new(0, Color3.fromRGB(255, 0, 0)),
+						ColorSequenceKeypoint.new(0.17, Color3.fromRGB(255, 255, 0)),
+						ColorSequenceKeypoint.new(0.33, Color3.fromRGB(0, 255, 0)),
+						ColorSequenceKeypoint.new(0.5, Color3.fromRGB(0, 255, 255)),
+						ColorSequenceKeypoint.new(0.67, Color3.fromRGB(0, 0, 255)),
+						ColorSequenceKeypoint.new(0.83, Color3.fromRGB(255, 0, 255)),
+						ColorSequenceKeypoint.new(1, Color3.fromRGB(255, 0, 0))
+					}),
+					Rotation = 45
+				})
+			}),
 			Utility:Create('UICorner', {
 				CornerRadius = UDim.new(0, 5),
 				Name = 'MainCorner'
 			}),
-			Utility:Create('ImageLabel', {
-				Name = 'IntroImage',
-				BackgroundColor3 = Theme.PrimaryElementColor,
+			Utility:Create('TextLabel', {
+				Name = 'IntroText',
+				BackgroundColor3 = Theme.BackgroundColor,
 				BackgroundTransparency = 1,
-				ImageTransparency = 1,
-				BorderSizePixel = 0,
+				TextTransparency = 1,
 				AnchorPoint = Vector2.new(0.5, 0.5),
-				Position = UDim2.new(0.5, 0, 0.5, 0),
-				ZIndex = 2,
-				Size = UDim2.new(0, 600, 0, 375),
-				Image = IntroIcon,
-				ScaleType = Enum.ScaleType.Fit
+				Position = UDim2.new(0,200,0,20),
+				BorderSizePixel = 0,
+				Size = UDim2.new(0, 375, 0, 36),
+				Font = Enum.Font.Gotham,
+				Text = '',
+				TextColor3 = Theme.PrimaryTextColor,
+				TextSize = 18,
+				ZIndex = 3,
+				TextXAlignment = Enum.TextXAlignment.Left
+			}),
+			Utility:Create('TextButton', {
+				Name = 'IntroButton',
+				BackgroundColor3 = Utility:Lighten(Theme.PrimaryElementColor),
+				BackgroundTransparency = 1,
+				Size = UDim2.new(0, 120, 0, 30),
+				Font = Enum.Font.Gotham,
+				TextColor3 = Theme.PrimaryTextColor,
+				TextSize = 16,
+				TextXAlignment = Enum.TextXAlignment.Center,
+				Text = 'Load',
+				Position = UDim2.new(0,130,0,325),
+				TextTransparency = 1
 			}, {
-                Utility:Create('TextLabel', {
-                    Name = 'IntroText',
-                    BackgroundColor3 = Theme.BackgroundColor,
-                    BackgroundTransparency = 1,
-                    TextTransparency = 1,
-                    AnchorPoint = Vector2.new(0.5, 0.5),
-                    Position = UDim2.new(0.5, 0, 0.5, 100),
-                    BorderSizePixel = 0,
-                    Size = UDim2.new(0, 170, 0, 375),
-                    Font = Enum.Font.Gotham,
-                    Text = IntroText,
-                    TextColor3 = Theme.PrimaryTextColor,
-                    TextSize = 18,
-                    ZIndex = 3,
-                    TextXAlignment = Enum.TextXAlignment.Center
-                });
-            });
-		}),
+				Utility:Create('UICorner', {
+					CornerRadius = UDim.new(0, 5),
+					Name = 'ButtonCorner'
+				}),
+			}),
+			Utility:Create('TextLabel', {
+				Name = 'Credits',
+				BackgroundColor3 = Utility:Lighten(Theme.PrimaryElementColor),
+				BackgroundTransparency = 1,
+				TextTransparency = 1,
+				AnchorPoint = Vector2.new(0.5, 0.5),
+				Position = UDim2.new(0, 185, 0, 160),
+				BorderSizePixel = 2,
+				Size = UDim2.new(0, 290, 0, 50),
+				Font = Enum.Font.GothamBold,
+				Text = UIName,
+				TextColor3 = Theme.PrimaryTextColor,
+				TextSize = 28,
+				ZIndex = 3,
+				TextXAlignment = Enum.TextXAlignment.Center
+			}, {
+				Utility:Create('UICorner', {
+					CornerRadius = UDim.new(0, 5),
+					Name = 'ButtonCorner'
+				})
+			}),
+
+			Utility:Create('Frame', {
+				Name = 'Intro DropdownHolder',
+				Parent = Main,
+				BackgroundColor3 = Theme.PrimaryElementColor,
+				Size = UDim2.new(0, 350, 0, 35),
+				Position = UDim2.new(0,12,0,260),
+				BackgroundTransparency = 1,
+			}, {
+				Utility:Create('UICorner', {
+					CornerRadius = UDim.new(0, 5),
+					Name = 'Intro DropdownHolderCorner'
+				}),
+				Utility:Create('UIStroke', {
+					Name = 'Intro DropdownHolderStroke',
+					ApplyStrokeMode = 'Contextual',
+					Color = Theme.BackgroundColor,
+					LineJoinMode = 'Round',
+					Thickness = 1,
+					Transparency = 1,
+				}),
+				Utility:Create('TextLabel', {
+					Name = 'Intro DropdownText',
+					BackgroundColor3 = Theme.PrimaryElementColor,
+					BackgroundTransparency = 1,
+					TextTransparency = 1,
+					Position = UDim2.new(0, 0, 0, 5),
+					Size = UDim2.new(0, 200, 0, 30),
+					Font = Enum.Font.Gotham,
+					Text = 'Load Config',
+					TextColor3 = Theme.PrimaryTextColor,
+					TextSize = 16,
+					TextXAlignment = Enum.TextXAlignment.Left
+				}, {
+					Utility:Create('UIPadding', {
+						Name = 'Intro DropdownTextPadding',
+						PaddingLeft = UDim.new(0, 7)
+					})
+				}),
+				Utility:Create('ImageLabel', {
+					Name = 'Intro DropdownIcon',
+					BackgroundColor3 = Theme.PrimaryElementColor,
+					BackgroundTransparency = 1,
+					BorderSizePixel = 0,
+					Position = UDim2.new(0, 317, 0, 8),
+					Rotation = 90,
+					Size = UDim2.new(0, 25, 0, 25),
+					ImageTransparency = 1,
+					Image = 'rbxassetid://3926305904',
+					ImageColor3 = Theme.SecondaryTextColor,
+					ImageRectOffset = Vector2.new(964, 284),
+					ImageRectSize = Vector2.new(36, 36)
+				}),
+				Utility:Create('TextLabel', {
+					Name = 'Intro DropdownSelectedText',
+					BackgroundColor3 = Theme.PrimaryElementColor,
+					BackgroundTransparency = 1,
+					TextTransparency = 1,
+					Position = UDim2.new(0, 149, 0, 8),
+					Size = UDim2.new(0, 176, 0, 25),
+					Font = Enum.Font.Gotham,
+					Text = 'Skip',
+					TextColor3 = Theme.SecondaryTextColor,
+					TextSize = 14,
+					TextXAlignment = Enum.TextXAlignment.Right
+				}, {
+					Utility:Create('UICorner', {
+						CornerRadius = UDim.new(0, 5),
+						Name = 'Intro DropdownSelectedTextCorner'
+					}),
+					Utility:Create('UIPadding', {
+						Name = 'Intro DropdownSelectedTextPadding',
+						PaddingRight = UDim.new(0, 7)
+					})
+				}),
+				Utility:Create('ScrollingFrame', {
+					Name = 'Intro DropList',
+					Active = true,
+					BackgroundColor3 = Theme.PrimaryElementColor,
+					BorderSizePixel = 0,
+					Position = UDim2.new(0, 0, 1, 0),
+					Size = UDim2.new(0, 350, 0, 30),
+					Visible = false,
+					ScrollBarImageColor3 = Theme.ScrollBarColor,
+					ScrollBarThickness = 3
+				},{
+					Utility:Create('UIListLayout', {
+						Name = 'IntroDropListLayout',
+						SortOrder = Enum.SortOrder.LayoutOrder
+					}),
+					Utility:Create('UICorner', {
+						CornerRadius = UDim.new(0, 5),
+						Name = 'DropdownListCorner'
+					}),
+				}),
+				Utility:Create('TextButton', {
+					Name = 'Intro DropdownButton',
+					BackgroundColor3 = Theme.PrimaryElementColor,
+					BackgroundTransparency = 1,
+					BorderSizePixel = 0,
+					Position = UDim2.new(0, 0, 0, 0),
+					Size = UDim2.new(0, 350, 0, 35),
+					Font = Enum.Font.SourceSans,
+					Text = '',
+					TextColor3 = Color3.fromRGB(0, 0, 0),
+					TextSize = 14
+				}, {
+					Utility:Create('UICorner', {
+						CornerRadius = UDim.new(0, 5),
+						Name = 'Intro DropdownButtonCorner'
+					})
+				})
+			}),
+			Utility:Create('Frame', {
+				Name = 'Intro DropdownFiller',
+				Parent = Main,
+				Visible = false,
+				BackgroundTransparency = 1,
+				Size = UDim2.new(0, 350, 0, 0)
+			})
+		})
 	})
 
-	local Main = nil
-	Main = (Container:FindFirstChild("Main")) or Container:FindFirstChild("Main");
-	repeat wait()until Main ~= nil;
-	local _X_Image = nil;
-	_X_Image = Main:FindFirstChild("IntroImage");
-	local _X_Text = nil;
-	_X_Text = _X_Image:FindFirstChild("IntroText");
+	repeat
+		wait()
+	until Container:FindFirstChild('Main') and Container:FindFirstChild('Main'):FindFirstChild('MainGradient') and Container:FindFirstChild('Main'):FindFirstChild('MainCorner') and Container:FindFirstChild('Main'):FindFirstChild('IntroText') and Container:FindFirstChild('Main'):FindFirstChild('IntroButton');
+	local SelectedSetting = 'Skip';
+	local Main = Container:FindFirstChild("Main");
+	local IntroductionText = Main:FindFirstChild("IntroText");
+	local ColorLigthed = Utility:Lighten(Theme.PrimaryElementColor)
+	local List = Library:GetConfigs();
+	local Opened = false
+	local Debounce = false
+	local DebounceAmount = 0.25
+
+	for _, Item in next, List do
+		Utility:Create('TextButton', {
+			Name = Item..'OptionButton',
+			Parent = Main['Intro DropdownHolder']['Intro DropList'],
+			BackgroundColor3 = Theme.PrimaryElementColor,
+			BorderSizePixel = 0,
+			Size = UDim2.new(0, 350, 0, 30),
+			Font = Enum.Font.SourceSans,
+			TextColor3 = Theme.SecondaryTextColor,
+			TextSize = 16,
+			AutoButtonColor = false,
+			Text = Item,
+			TextXAlignment = Enum.TextXAlignment.Left
+		}, {
+			Utility:Create('UIPadding', {
+				Name = Item..'OptionButtonPadding',
+				PaddingLeft = UDim.new(0, 7)
+			}),
+			Utility:Create('UICorner', {
+				CornerRadius = UDim.new(0, 5),
+				Name = Item..'OptionButtonCorner'
+			})
+		})
+		local OptionButton = Main['Intro DropdownHolder']['Intro DropList'][Item..'OptionButton']
+
+		OptionButton.MouseEnter:Connect(function()
+			Hovering = true
+			Utility:Tween(OptionButton, {BackgroundColor3 = Utility:Lighten(Theme.PrimaryElementColor)}, 0.5)
+		end)
+
+		OptionButton.MouseLeave:Connect(function()
+			Utility:Tween(OptionButton, {BackgroundColor3 = Theme.PrimaryElementColor}, 0.5)
+			Hovering = false
+		end)
+
+		OptionButton.MouseButton1Click:Connect(function()
+			for _, Button in next, Main['Intro DropdownHolder']['Intro DropList']:GetChildren() do
+				if Button:IsA('TextButton') then
+					Utility:Tween(Button, {BackgroundColor3 = Theme.PrimaryElementColor}, 0.25)
+				end
+			end
+			Utility:Tween(OptionButton, {BackgroundColor3 = Utility:Lighten(Theme.PrimaryElementColor)}, 0.25)
+			Main['Intro DropdownHolder']['Intro DropdownSelectedText'].Text = (Item or "[!] Error")
+			SelectedSetting = Item or 'Skip';
+			Opened = false
+			Utility:Tween(Main['Intro DropdownFiller'], {Size = UDim2.new(0, 350, 0, 0)}, 0.25)
+			Utility:Tween(Main['Intro DropdownHolder']['Intro DropList'], {Size = UDim2.new(0, 350, 0, 0)}, 0.25)
+			Utility:Tween(Main['Intro DropdownHolder']['Intro DropdownIcon'], {Rotation = 90}, 0.25)
+			Debounce = true
+			wait(DebounceAmount)
+			Debounce = false
+			Main['Intro DropdownHolder']['Intro DropList'].Visible = false
+			Main['Intro DropdownFiller'].Visible = false
+		end)
+	end 
+
+	Main['Intro DropdownHolder']['Intro DropdownButton'].MouseButton1Click:Connect(function()
+		wait(0.25)
+		if not Debounce then
+			if Opened then
+				Opened = false
+				Utility:Tween(Main['Intro DropdownFiller'], {Size = UDim2.new(0, 350, 0, 0)}, 0.25)
+				Utility:Tween(Main['Intro DropdownHolder']['Intro DropList'], {Size = UDim2.new(0, 350, 0, 0)}, 0.25)
+				Utility:Tween(Main['Intro DropdownHolder']['Intro DropdownIcon'], {Rotation = 90}, 0.25)
+				Debounce = true
+				wait(DebounceAmount)
+				Debounce = false
+				Main['Intro DropdownHolder']['Intro DropList'].Visible = false
+				Main['Intro DropdownFiller'].Visible = false
+
+			else
+				Opened = true
+				Main['Intro DropdownFiller'].Visible = true
+				Main['Intro DropdownHolder']['Intro DropList'].Visible = true
+				if #List <= 5 then
+					Utility:Tween(Main['Intro DropdownHolder']['Intro DropList'], {Size = UDim2.new(0, 350, 0, 65)}, 0.25)
+					Utility:Tween(Main['Intro DropdownFiller'], {Size = UDim2.new(0, 350, 0, Main['Intro DropdownHolder']['Intro DropList']['IntroDropListLayout'].AbsoluteContentSize.Y - 20)}, 0.25)
+					Utility:Tween(Main['Intro DropdownHolder']['Intro DropList'], {CanvasSize = UDim2.new(0, 150, 0, Main['Intro DropdownHolder']['Intro DropList']['IntroDropListLayout'].AbsoluteContentSize.Y)}, 0.25)
+				else
+					Utility:Tween(Main['Intro DropdownHolder']['Intro DropList'], {Size = UDim2.new(0, 350, 0, 65)}, 0.25)
+					Utility:Tween(Main['Intro DropdownHolder']['Intro DropList'], {CanvasSize = UDim2.new(0, 150, 0, Main['Intro DropdownHolder']['Intro DropList']['IntroDropListLayout'].AbsoluteContentSize.Y)}, 0.25)
+					Utility:Tween(Main['Intro DropdownFiller'], {Size = UDim2.new(0, 350, 0, 144)}, 0.25)
+				end
+				Utility:Tween(Main['Intro DropdownHolder']['Intro DropdownIcon'], {Rotation = 270}, 0.25)
+				Debounce = true
+				wait(DebounceAmount)
+				Debounce = false
+			end
+		end
+	end)
+
+	Main['IntroButton'].MouseEnter:Connect(function()
+		Utility:Tween(Main['IntroButton'], {BackgroundColor3 = Utility:Lighten(ColorLigthed)}, 0.01)
+	end)
+	Main['IntroButton'].MouseLeave:Connect(function()
+		Utility:Tween(Main['IntroButton'], {BackgroundColor3 = ColorLigthed}, 0.01)
+	end)
+	--\\ Centering Gui
 	Utility:EnableDragging(Main)
 	Utility:Tween(Main, {BackgroundTransparency = 0}, 0.25)
-	Utility:Tween(Main, {Size = UDim2.new(0, 600, 0, 0)}, 0.25)
-	wait(0.5)
-	Utility:Tween(Main, {Size = UDim2.new(0, 600, 0, 375)}, 0.25)
-	wait(0.5)
-	repeat _X_Text = _X_Image:FindFirstChild("IntroText")wait()until Main ~= nil and _X_Text ~= nil;
-	Utility:Tween(_X_Image['IntroText'], {TextTransparency = 0}, 0.25)
-	wait(0.5)
-	repeat _X_Image = Main:FindFirstChild("IntroImage")wait()until Main ~= nil and _X_Image ~= nil;
-	Utility:Tween(Main['IntroImage'], {ImageTransparency = 0}, 0.25)
-	wait(1.4)
-  	Utility:Tween(Main['IntroImage'], {ImageColor3 = Color3.fromRGB(136,212,83)}, 0.25)
+	Utility:Tween(Main, {Size = UDim2.new(0, 375, 0, 0)}, 0.25)
+	Utility:Tween(Main['MainGradient'], {BackgroundTransparency = 0}, 0.25)
+	Utility:Tween(Main['MainGradient'], {Size = UDim2.new(0, 378, 0, 0)}, 0.25)
 	wait(0.25)
-	_X_Image['IntroText'].Text = "Loading ..."
-  	wait(0.30)
-  	Utility:Tween(Main['IntroImage'], {ImageColor3 = Color3.fromRGB(212,0,20)}, 0.25)
-	wait(.15)
-	repeat _X_Text = _X_Image:FindFirstChild("IntroText")wait()until Main ~= nil and _X_Text ~= nil;
-	Utility:Tween(_X_Image['IntroText'], {TextTransparency = 1}, 0.25)
-	wait(0.10)
-	Utility:Tween(Main['IntroImage'], {ImageTransparency = 1}, 0.25)
-	wait(0.5)
-	_X_Image['IntroText']:Destroy()
-	Main['IntroImage']:Destroy()
-	Library:CreateNotification('[!] '..HubName..' Loaded!', 'Ui Successfully Loaded, Time Taken: '..math.floor(tick()-StartTick)..' Seconds!', 5)
+	Utility:Tween(Main, {Size = UDim2.new(0, 375, 0, 400)}, 0.25)
+	Utility:Tween(Main['MainGradient'], {Size = UDim2.new(0, 378, 0, 404)}, 0.25)
+	wait(0.25)
+	--\\ Gui Has Been Centered!
+	Utility:Tween(Main['IntroText'], {TextTransparency = 0}, 0.25)
+	Utility:Tween(Main['IntroButton'], {BackgroundTransparency = 0}, 0.25)
+	Utility:Tween(Main['IntroButton'], {TextTransparency = 0}, 0.25)
+	Utility:Tween(Main['Intro DropdownHolder'], {BackgroundTransparency = 0}, 0.25)
+	Utility:Tween(Main['Credits'], {TextTransparency = 0}, 0.25)
+	Utility:Tween(Main['Intro DropdownHolder']['Intro DropdownSelectedText'], {TextTransparency = 0}, 0.25)
+	Utility:Tween(Main['Intro DropdownHolder']['Intro DropdownText'], {TextTransparency = 0}, 0.25)
+	Utility:Tween(Main['Intro DropdownHolder']['Intro DropdownIcon'], {ImageTransparency = 0}, 0.25)
+	Utility:Tween(Main['Intro DropdownHolder']['Intro DropdownHolderStroke'], {Color = Theme.UIStrokeColor}, 0.25)
+	Utility:Tween(Main['Intro DropdownHolder']['Intro DropdownHolderStroke'], {Transparency = 0}, 0.25)
+	wait()
+	local message = "Welcome, "..Services.Players.LocalPlayer.Name..'!'
+	for i = 0, #message do
+		wait(0.01);
+		Container:FindFirstChild('Main'):FindFirstChild('IntroText').Text = string.sub(message, 1, i)
+	end
+	--\\ New Shit
+	local HasTouched = false
+	Main['IntroButton'].MouseButton1Click:Connect(function()
+		HasTouched = true
+	end)
+	repeat
+		wait()
+	until HasTouched == true
+	Utility:Tween(Main, {Size = UDim2.new(0, 600, 0, 375)}, 0.25)
+	Utility:Tween(Main['MainGradient'], {Size = UDim2.new(0, 603, 0, 379)}, 0.25)
+	Main:FindFirstChild('Intro DropdownFiller'):Destroy();
+	Main:FindFirstChild('Intro DropdownHolder'):Destroy();
+	Main:FindFirstChild('Credits'):Destroy();
+	Main:FindFirstChild('IntroButton'):Destroy();
+	Main:FindFirstChild('IntroText'):Destroy();
+
+	--\\ Gui Loaded!
+	
 	Utility:Create('Frame', {
 		Name = 'PromptHolder',
 		Parent = Main,
@@ -1460,7 +1774,10 @@ function Library:CreateWindow(HubName, GameName)
 
 	local HubNameTextSize = TextService:GetTextSize(HubNameObj.Text, 18, Enum.Font.Gotham, Vector2.new(410, math.huge))
 	local GameNameTextSize = TextService:GetTextSize(GameNameObj.Text, 16, Enum.Font.Gotham, Vector2.new(410, math.huge))
-
+	if SelectedSetting ~= 'Skip' then
+		Library:LoadConfig(SelectedSetting,true);
+	end
+	Utility:Tween(Main['MainGradient'], {BackgroundTransparency = 1}, 2)
 	if HubNameTextSize.X >= 165 then
 		local NewText = HubNameObj.Text
 		local X = 0
@@ -1491,13 +1808,13 @@ function Library:CreateWindow(HubName, GameName)
 
 	HubNameObj.InputBegan:Connect(function(Input)
 		if Input.UserInputType == Enum.UserInputType.MouseButton1 then
-			Library:CreatePrompt('Text', 'Hub Name', HubName, 'Close')
+			Library:CreatePrompt('Text', 'Hub Name:', HubName, 'Close')
 		end
 	end)
 
 	GameNameObj.InputBegan:Connect(function(Input)
 		if Input.UserInputType == Enum.UserInputType.MouseButton1 then
-			Library:CreatePrompt('Text', 'Game Name', GameName, 'Close')
+			Library:CreatePrompt('Text', 'Game Name:', GameName, 'Close')
 		end
 	end)
 
@@ -3412,7 +3729,7 @@ function Library:CreateWindow(HubName, GameName)
 							BackgroundTransparency = 0,
 							BorderSizePixel = 0,
 							Size = UDim2.new(0, 410, 0, 25),
-							PlaceholderText = '[!] Search for elements on this Dropdown...',
+							PlaceholderText = '[!] Search for elements on this section...',
 							Font = Enum.Font.Gotham,
 							PlaceholderColor3 = Theme.SecondaryTextColor,
 							TextColor3 = Theme.SecondaryTextColor,
