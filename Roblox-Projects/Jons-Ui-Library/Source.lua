@@ -1774,15 +1774,15 @@ function Library:CreateWindow(HubName, GotImprovePerformance)
 
 	local HubNameTextSize = TextService:GetTextSize(HubNameObj.Text, 18, Enum.Font.Gotham, Vector2.new(410, math.huge))
 	local GameNameTextSize = TextService:GetTextSize(GameNameObj.Text, 16, Enum.Font.Gotham, Vector2.new(410, math.huge))
+	Utility:Tween(Main['MainGradient'], {BackgroundTransparency = 1}, 1)
 	spawn(function()
-		wait(2.1);
+		wait(1.2);
 		Main['MainGradient']:Destroy()
-		wait(1.9)
+		wait(2.8)
 		if SelectedSetting ~= 'Skip' then
 			Library:LoadConfig(SelectedSetting,true);
 		end
 	end)
-	Utility:Tween(Main['MainGradient'], {BackgroundTransparency = 1}, 2)
 	if HubNameTextSize.X >= 165 then
 		local NewText = HubNameObj.Text
 		local X = 0
