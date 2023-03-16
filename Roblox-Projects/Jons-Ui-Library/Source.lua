@@ -1774,9 +1774,6 @@ function Library:CreateWindow(HubName, GotImprovePerformance)
 
 	local HubNameTextSize = TextService:GetTextSize(HubNameObj.Text, 18, Enum.Font.Gotham, Vector2.new(410, math.huge))
 	local GameNameTextSize = TextService:GetTextSize(GameNameObj.Text, 16, Enum.Font.Gotham, Vector2.new(410, math.huge))
-	if SelectedSetting ~= 'Skip' then
-		Library:LoadConfig(SelectedSetting,true);
-	end
 	Utility:Tween(Main['MainGradient'], {BackgroundTransparency = 1}, 2)
 	if HubNameTextSize.X >= 165 then
 		local NewText = HubNameObj.Text
@@ -4931,6 +4928,9 @@ function Library:CreateWindow(HubName, GotImprovePerformance)
 			return Elements
 		end
 		return Sections
+	end
+	if SelectedSetting ~= 'Skip' then
+		Library:LoadConfig(SelectedSetting,true);
 	end
 	return Tabs
 end
