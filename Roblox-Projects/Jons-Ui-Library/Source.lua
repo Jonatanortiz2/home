@@ -200,6 +200,20 @@ local Themes = {
 		NotificationColor = Color3.fromRGB(25, 25, 25),
 		NotificationUIStrokeColor = Color3.fromRGB(125, 125, 125)
 	},
+	['Netflix'] = {
+        BackgroundColor = Color3.fromRGB(17, 17, 17),
+        SidebarColor = Color3.fromRGB(17, 17, 17),
+        PrimaryTextColor = Color3.fromRGB(255, 255, 255),
+        SecondaryTextColor = Color3.fromRGB(150, 150, 150),
+        UIStrokeColor = Color3.fromRGB(229, 9, 20),
+        PrimaryElementColor = Color3.fromRGB(20, 20, 20),
+        SecondaryElementColor = Color3.fromRGB(40, 40, 40),
+        OtherElementColor = Color3.fromRGB(0, 0, 0),
+        ScrollBarColor = Color3.fromRGB(229, 9, 20),
+        PromptColor = Color3.fromRGB(30, 30, 30),
+        NotificationColor = Color3.fromRGB(20, 20, 20),
+        NotificationUIStrokeColor = Color3.fromRGB(229, 9, 20)
+    },
 	['Lighter'] = {
 		BackgroundColor = Color3.fromRGB(40, 40, 40),
 		SidebarColor = Color3.fromRGB(45, 45, 45),
@@ -4709,9 +4723,9 @@ function Library:CreateWindow(HubName, GotImprovePerformance)
 				ConfigUpdates[Name.."ColorPickerIsRainbow"] = RainbowmodeToggleFunctions
 
 				function ColorpickerFunctions:Set(Value)
-					Color = Color3.fromRGB(Value.R, Value.G, Value.B)
-					ColorpickerPreview.BackgroundColor3 = Color
-					Callback(Color)
+					Color = {Value.R,Value.G,1}
+					ColorpickerPreview.BackgroundColor3 = Value
+					Callback(Value)
 				end
 				ConfigUpdates[Name] = ColorpickerFunctions
 				return ColorpickerFunctions
