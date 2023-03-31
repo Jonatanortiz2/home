@@ -1606,10 +1606,14 @@ function Library:CreateWindow(HubName, GotImprovePerformance)
 	local Main = Container:FindFirstChild("Main");
 	local IntroductionText = Main:FindFirstChild("IntroText");
 	local ColorLigthed = Utility:Lighten(Theme.PrimaryElementColor)
-	local List = Library:GetConfigs();
+	local List = Library:GetConfigs() or 'N/A';
 	local Opened = false
 	local Debounce = false
 	local DebounceAmount = 0.25
+
+	if List == 'N/A' then 
+		List = {'First Time Use Please Skip!','First Time Use Please Skip!','First Time Use Please Skip!'}
+	end
 
 	for _, Item in next, List do
 		Utility:Create('TextButton', {
@@ -1932,7 +1936,7 @@ function Library:CreateWindow(HubName, GotImprovePerformance)
 		wait(0.60);
 		Main['MainGradient']:Destroy()
 		wait(3.4)
-		if SelectedSetting ~= 'Skip' then
+		if SelectedSetting ~= ('Skip' or 'First Time Use Please Skip!') then
 			Library:LoadConfig(SelectedSetting,true);
 		end
 	end)
@@ -4983,4 +4987,5 @@ function Library:CreateWindow(HubName, GotImprovePerformance)
 end
 
 getgenv().SecretUiLibrary = Library
+
 return Library;
