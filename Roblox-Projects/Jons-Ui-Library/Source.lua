@@ -1936,8 +1936,8 @@ function Library:CreateWindow(HubName, GotImprovePerformance)
 		wait(0.60);
 		Main['MainGradient']:Destroy()
 		wait(3.4)
-		if SelectedSetting ~= ('Skip' or 'First Time Use Please Skip!') then
-			Library:LoadConfig(SelectedSetting,true);
+		if SelectedSetting ~= 'Skip' and SelectedSetting ~= 'First Time Use Please Skip!' then
+			Library:LoadConfig(SelectedSetting, true)
 		end
 	end)
 	if HubNameTextSize.X >= 165 then
