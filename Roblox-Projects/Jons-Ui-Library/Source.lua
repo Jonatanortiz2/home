@@ -64,15 +64,128 @@ task = {
 		if Callback then
 			wait(Callback or 0.01)
 		else
-			FastWait()
+			wait()
 		end
 	end,
 	spawn = function(Callback)
 		spawn(Callback)
 	end
 };
+
 -- // Variables
 local Themes = {
+    ['Spotify'] = {
+        BackgroundColor = Color3.fromRGB(30, 30, 30),
+        SidebarColor = Color3.fromRGB(25, 25, 25),
+        PrimaryTextColor = Color3.fromRGB(255, 255, 255),
+        SecondaryTextColor = Color3.fromRGB(153, 153, 153),
+        UIStrokeColor = Color3.fromRGB(29, 185, 84),
+        PrimaryElementColor = Color3.fromRGB(25, 25, 25),
+        SecondaryElementColor = Color3.fromRGB(40, 40, 40),
+        OtherElementColor = Color3.fromRGB(30, 30, 30),
+        ScrollBarColor = Color3.fromRGB(29, 185, 84),
+        PromptColor = Color3.fromRGB(25, 25, 25),
+        NotificationColor = Color3.fromRGB(30, 30, 30),
+        NotificationUIStrokeColor = Color3.fromRGB(29, 185, 84)
+    },
+    ['Twitter Light'] = {
+        BackgroundColor = Color3.fromRGB(247, 249, 250),
+        SidebarColor = Color3.fromRGB(255, 255, 255),
+        PrimaryTextColor = Color3.fromRGB(20, 23, 26),
+        SecondaryTextColor = Color3.fromRGB(255, 0, 0),
+        UIStrokeColor = Color3.fromRGB(230, 236, 240),
+        PrimaryElementColor = Color3.fromRGB(255, 255, 255),
+        SecondaryElementColor = Color3.fromRGB(230, 236, 240),
+        OtherElementColor = Color3.fromRGB(247, 249, 250),
+        ScrollBarColor = Color3.fromRGB(204, 214, 221),
+        PromptColor = Color3.fromRGB(245, 248, 250),
+        NotificationColor = Color3.fromRGB(247, 249, 250),
+        NotificationUIStrokeColor = Color3.fromRGB(230, 236, 240)
+    },
+    ['Twitter Dark'] = {
+        BackgroundColor = Color3.fromRGB(25, 25, 25),
+        SidebarColor = Color3.fromRGB(35, 35, 35),
+        PrimaryTextColor = Color3.fromRGB(255, 255, 255),
+        SecondaryTextColor = Color3.fromRGB(150, 150, 150),
+        UIStrokeColor = Color3.fromRGB(29, 161, 242),
+        PrimaryElementColor = Color3.fromRGB(35, 35, 35),
+        SecondaryElementColor = Color3.fromRGB(50, 50, 50),
+        OtherElementColor = Color3.fromRGB(25, 25, 25),
+        ScrollBarColor = Color3.fromRGB(29, 161, 242),
+        PromptColor = Color3.fromRGB(30, 30, 30),
+        NotificationColor = Color3.fromRGB(35, 35, 35),
+        NotificationUIStrokeColor = Color3.fromRGB(29, 161, 242)
+    },
+	['Neon'] = {
+        BackgroundColor = Color3.fromRGB(0, 0, 0),
+        SidebarColor = Color3.fromRGB(20, 20, 20),
+        PrimaryTextColor = Color3.fromRGB(255, 255, 255),
+        SecondaryTextColor = Color3.fromRGB(150, 150, 150),
+        UIStrokeColor = Color3.fromRGB(255, 0, 255),
+        PrimaryElementColor = Color3.fromRGB(20, 20, 20),
+        SecondaryElementColor = Color3.fromRGB(40, 40, 40),
+        OtherElementColor = Color3.fromRGB(0, 0, 0),
+        ScrollBarColor = Color3.fromRGB(255, 0, 255),
+        PromptColor = Color3.fromRGB(30, 30, 30),
+        NotificationColor = Color3.fromRGB(20, 20, 20),
+        NotificationUIStrokeColor = Color3.fromRGB(255, 0, 255)
+    },
+	['Ocean'] = {
+		BackgroundColor = Color3.fromRGB(20, 40, 80),
+		SidebarColor = Color3.fromRGB(15, 30, 60),
+		PrimaryTextColor = Color3.fromRGB(255, 255, 255),
+		SecondaryTextColor = Color3.fromRGB(135, 135, 135),
+		UIStrokeColor = Color3.fromRGB(60, 60, 60),
+		PrimaryElementColor = Color3.fromRGB(30, 50, 90),
+		SecondaryElementColor = Color3.fromRGB(50, 80, 130),
+		OtherElementColor = Color3.fromRGB(25, 45, 80),
+		ScrollBarColor = Color3.fromRGB(125, 175, 225),
+		PromptColor = Color3.fromRGB(25, 50, 90),
+		NotificationColor = Color3.fromRGB(20, 40, 80),
+		NotificationUIStrokeColor = Color3.fromRGB(125, 175, 225)
+	},
+	['Space'] = {
+		BackgroundColor = Color3.fromRGB(0, 0, 25),
+		SidebarColor = Color3.fromRGB(0, 0, 30),
+		PrimaryTextColor = Color3.fromRGB(255, 255, 255),
+		SecondaryTextColor = Color3.fromRGB(135, 135, 135),
+		UIStrokeColor = Color3.fromRGB(60, 60, 60),
+		PrimaryElementColor = Color3.fromRGB(20, 20, 40),
+		SecondaryElementColor = Color3.fromRGB(30, 30, 50),
+		OtherElementColor = Color3.fromRGB(15, 15, 30),
+		ScrollBarColor = Color3.fromRGB(125, 125, 175),
+		PromptColor = Color3.fromRGB(0, 0, 25),
+		NotificationColor = Color3.fromRGB(0, 0, 30),
+		NotificationUIStrokeColor = Color3.fromRGB(125, 125, 175)
+	},
+	['Retro'] = {
+		BackgroundColor = Color3.fromRGB(40, 20, 20),
+		SidebarColor = Color3.fromRGB(50, 30, 30),
+		PrimaryTextColor = Color3.fromRGB(255, 255, 255),
+		SecondaryTextColor = Color3.fromRGB(135, 135, 135),
+		UIStrokeColor = Color3.fromRGB(60, 60, 60),
+		PrimaryElementColor = Color3.fromRGB(80, 50, 50),
+		SecondaryElementColor = Color3.fromRGB(120, 70, 70),
+		OtherElementColor = Color3.fromRGB(60, 40, 40),
+		ScrollBarColor = Color3.fromRGB(175, 125, 125),
+		PromptColor = Color3.fromRGB(40, 20, 20),
+		NotificationColor = Color3.fromRGB(50, 30, 30),
+		NotificationUIStrokeColor = Color3.fromRGB(175, 125, 125)
+	},
+	['Nature'] = {
+        BackgroundColor = Color3.fromRGB(221, 239, 205),
+        SidebarColor = Color3.fromRGB(183, 215, 168),
+        PrimaryTextColor = Color3.fromRGB(17, 73, 17),
+        SecondaryTextColor = Color3.fromRGB(82, 111, 53),
+        UIStrokeColor = Color3.fromRGB(124, 179, 105),
+        PrimaryElementColor = Color3.fromRGB(222, 235, 203),
+        SecondaryElementColor = Color3.fromRGB(196, 222, 164),
+        OtherElementColor = Color3.fromRGB(186, 219, 141),
+        ScrollBarColor = Color3.fromRGB(196, 222, 164),
+        PromptColor = Color3.fromRGB(183, 215, 168),
+        NotificationColor = Color3.fromRGB(221, 239, 205),
+        NotificationUIStrokeColor = Color3.fromRGB(124, 179, 105)
+    },
 	['Default'] = {
 		BackgroundColor = Color3.fromRGB(25, 25, 25),
 		SidebarColor = Color3.fromRGB(30, 30, 30),
@@ -268,7 +381,21 @@ local Themes = {
 		PromptColor = Color3.fromRGB(40, 40, 40),
 		NotificationColor = Color3.fromRGB(25, 25, 25),
 		NotificationUIStrokeColor = Color3.fromRGB(255, 170, 60)
-	}
+	},
+	['Cyberpunk 2077'] = {
+        BackgroundColor = Color3.fromRGB(26, 26, 26),
+		SidebarColor = Color3.fromRGB(31, 31, 31),
+		PrimaryTextColor = Color3.fromRGB(255, 255, 255),
+		SecondaryTextColor = Color3.fromRGB(129, 129, 129),
+		UIStrokeColor = Color3.fromRGB(0, 191, 255),
+		PrimaryElementColor = Color3.fromRGB(26,26,26),
+		SecondaryElementColor = Color3.fromRGB(255, 236, 153), -- not filled
+		OtherElementColor = Color3.fromRGB(20, 20, 20),
+		ScrollBarColor = Color3.fromRGB(255, 192, 203),
+		PromptColor = Color3.fromRGB(45, 45, 45),
+		NotificationColor = Color3.fromRGB(20, 20, 20),
+		NotificationUIStrokeColor = Color3.fromRGB(63, 72, 204)
+    },
 }
 
 -- // Utility Functions
@@ -501,7 +628,7 @@ do
 
         if TypeOfPrompt == 'Text' then
             local ButtonText = ...
-            Utility:Create('Frame', {
+            local promptlocal = Utility:Create('Frame', {
                 Name = Title..'PromptFrame',
                 Parent = CoreGui:WaitForChild(UIName):WaitForChild('Main'):WaitForChild('PromptHolder'),
                 BackgroundColor3 = Theme.PromptColor,
@@ -584,8 +711,12 @@ do
                 })
             })
 
-            local PromptHolder = CoreGui:WaitForChild(UIName):WaitForChild('Main'):WaitForChild('PromptHolder')
-            local PromptFrame = PromptHolder[Title..'PromptFrame']
+            local PromptFrame = promptlocal
+			repeat
+				wait()
+			until PromptFrame ~= nil and PromptFrame:FindFirstChild(Title..'PromptTitle')
+            
+			local PromptHolder = PromptFrame.Parent
             local PromptFrameCorner = PromptFrame[Title..'PromptFrameCorner']
             local Button = PromptFrame[Title..'Button']
             local ButtonStroke = Button[Title..'ButtonStroke']
@@ -630,15 +761,15 @@ do
                 Utility:Tween(PromptFrameCorner, {CornerRadius = UDim.new(0, 100)}, 0.25)
                 task.wait(0.25)
                 Utility:Tween(PromptHolder, {BackgroundTransparency = 1}, 0.25)
-                task.wait()
-                PromptFrame:Destroy()
+                task.wait(0.01)
+                promptlocal:Destroy();
             end)
 
         elseif TypeOfPrompt == 'OneButton' then
             local Args = ...
             local ButtonText = Args[1]
             local ButtonCallback = Args[2]
-            Utility:Create('Frame', {
+            local promptlocal = Utility:Create('Frame', {
                 Name = Title..'PromptFrame',
                 Parent = CoreGui:WaitForChild(UIName):WaitForChild('Main'):WaitForChild('PromptHolder'),
                 BackgroundColor3 = Theme.PromptColor,
@@ -720,9 +851,13 @@ do
                     })
                 })
             })
-
-            local PromptHolder = CoreGui:WaitForChild(UIName):WaitForChild('Main'):WaitForChild('PromptHolder')
-            local PromptFrame = PromptHolder[Title..'PromptFrame']
+			
+			local PromptFrame = promptlocal
+			repeat
+				wait()
+			until PromptFrame ~= nil and PromptFrame:FindFirstChild(Title..'PromptTitle')
+            
+			local PromptHolder = PromptFrame.Parent
             local PromptFrameCorner = PromptFrame[Title..'PromptFrameCorner']
             local Button = PromptFrame[Title..'Button']
             local ButtonStroke = Button[Title..'ButtonStroke']
@@ -768,8 +903,8 @@ do
                 Utility:Tween(PromptFrameCorner, {CornerRadius = UDim.new(0, 100)}, 0.25)
                 task.wait(0.25)
                 Utility:Tween(PromptHolder, {BackgroundTransparency = 1}, 0.25)
-                task.wait()
-                PromptFrame:Destroy()
+                task.wait(0.01)
+                promptlocal:Destroy();
             end)
             
         elseif TypeOfPrompt == 'TwoButton' then
@@ -778,7 +913,7 @@ do
             local Button1Callback = Args[2]
             local Button2Text = Args[3]
             local Button2Callback = Args[4]
-            Utility:Create('Frame', {
+            local promptlocal = Utility:Create('Frame', {
                 Name = Title..'PromptFrame',
                 Parent = CoreGui:WaitForChild(UIName):WaitForChild('Main'):WaitForChild('PromptHolder'),
                 BackgroundColor3 = Theme.PromptColor,
@@ -890,8 +1025,12 @@ do
                 })
             })
 
-            local PromptHolder = CoreGui:WaitForChild(UIName):WaitForChild('Main'):WaitForChild('PromptHolder')
-            local PromptFrame = PromptHolder[Title..'PromptFrame']
+            local PromptFrame = promptlocal
+			repeat
+				wait()
+			until PromptFrame ~= nil and PromptFrame:FindFirstChild(Title..'PromptTitle')
+            
+			local PromptHolder = PromptFrame.Parent
             local PromptFrameCorner = PromptFrame[Title..'PromptFrameCorner']
             local Button1 = PromptFrame[Title..'Button1']
             local Button2 = PromptFrame[Title..'Button2']
@@ -945,8 +1084,8 @@ do
                 Utility:Tween(PromptFrameCorner, {CornerRadius = UDim.new(0, 100)}, 0.25)
                 task.wait(0.25)
                 Utility:Tween(PromptHolder, {BackgroundTransparency = 1}, 0.25)
-                task.wait()
-                PromptFrame:Destroy()
+                task.wait(0.01)
+                promptlocal:Destroy();
             end)
 
             Button2.MouseEnter:Connect(function(Input)
@@ -974,8 +1113,8 @@ do
                 Utility:Tween(PromptFrameCorner, {CornerRadius = UDim.new(0, 100)}, 0.25)
                 task.wait(0.25)
                 Utility:Tween(PromptHolder, {BackgroundTransparency = 1}, 0.25)
-                task.wait()
-                PromptFrame:Destroy()
+                task.wait(0.01)
+                promptlocal:Destroy();
             end)
         end
     end
@@ -1882,9 +2021,8 @@ function Library:CreateWindow(HubName, GotImprovePerformance)
 				Config['Theme_4z3s4QrUhfqt703FmiAe'] = HttpService:JSONEncode(NewTable)
 				ChangeThemeValue()
 			elseif type(NewTheme) == 'string' then
-				NewTheme = NewTheme:lower()
-				if NewTheme == 'custom' then
-					Theme = Themes['Custom']
+				if Themes[NewTheme] then
+					Theme = Themes[NewTheme];
 					local NewTable = {}
 					for Index, Value in next, Theme do
 						NewTable[Index] = Utility:SplitColor(Value)
@@ -1892,132 +2030,8 @@ function Library:CreateWindow(HubName, GotImprovePerformance)
 					writefile(''..tostring(LibraryName)..'CurrentTheme.json', HttpService:JSONEncode(NewTable))
 					Config['Theme_4z3s4QrUhfqt703FmiAe'] = HttpService:JSONEncode(NewTable)
 					ChangeThemeValue()
-				elseif NewTheme == 'default' then
-					Theme = Themes['Default']
-					local NewTable = {}
-					for Index, Value in next, Theme do
-						NewTable[Index] = Utility:SplitColor(Value)
-					end
-					writefile(''..tostring(LibraryName)..'CurrentTheme.json', HttpService:JSONEncode(NewTable))
-					Config['Theme_4z3s4QrUhfqt703FmiAe'] = HttpService:JSONEncode(NewTable)
-					ChangeThemeValue()
-				elseif NewTheme == 'lighter' then
-					Theme = Themes['Lighter']
-					local NewTable = {}
-					for Index, Value in next, Theme do
-						NewTable[Index] = Utility:SplitColor(Value)
-					end
-					writefile(''..tostring(LibraryName)..'CurrentTheme.json', HttpService:JSONEncode(NewTable))
-					Config['Theme_4z3s4QrUhfqt703FmiAe'] = HttpService:JSONEncode(NewTable)
-					ChangeThemeValue()
-				elseif NewTheme == 'light' then
-					Theme = Themes['Light']
-					local NewTable = {}
-					for Index, Value in next, Theme do
-						NewTable[Index] = Utility:SplitColor(Value)
-					end
-					writefile(''..tostring(LibraryName)..'CurrentTheme.json', HttpService:JSONEncode(NewTable))
-					Config['Theme_4z3s4QrUhfqt703FmiAe'] = HttpService:JSONEncode(NewTable)
-					ChangeThemeValue()
-				elseif NewTheme == 'light+' then
-					Theme = Themes['Light+']
-					local NewTable = {}
-					for Index, Value in next, Theme do
-						NewTable[Index] = Utility:SplitColor(Value)
-					end
-					writefile(''..tostring(LibraryName)..'CurrentTheme.json', HttpService:JSONEncode(NewTable))
-					Config['Theme_4z3s4QrUhfqt703FmiAe'] = HttpService:JSONEncode(NewTable)
-					ChangeThemeValue()
-				elseif NewTheme == 'discord' then
-					Theme = Themes['Discord']
-					local NewTable = {}
-					for Index, Value in next, Theme do
-						NewTable[Index] = Utility:SplitColor(Value)
-					end
-					writefile(''..tostring(LibraryName)..'CurrentTheme.json', HttpService:JSONEncode(NewTable))
-					Config['Theme_4z3s4QrUhfqt703FmiAe'] = HttpService:JSONEncode(NewTable)
-					ChangeThemeValue()
-				elseif NewTheme == 'red and black' then
-					Theme = Themes['Red And Black']
-					local NewTable = {}
-					for Index, Value in next, Theme do
-						NewTable[Index] = Utility:SplitColor(Value)
-					end
-					writefile(''..tostring(LibraryName)..'CurrentTheme.json', HttpService:JSONEncode(NewTable))
-					Config['Theme_4z3s4QrUhfqt703FmiAe'] = HttpService:JSONEncode(NewTable)
-					ChangeThemeValue()
-				elseif NewTheme == 'nordic dark' then
-					Theme = Themes['Nordic Dark']
-					local NewTable = {}
-					for Index, Value in next, Theme do
-						NewTable[Index] = Utility:SplitColor(Value)
-					end
-					writefile(''..tostring(LibraryName)..'CurrentTheme.json', HttpService:JSONEncode(NewTable))
-					Config['Theme_4z3s4QrUhfqt703FmiAe'] = HttpService:JSONEncode(NewTable)
-					ChangeThemeValue()
-				elseif NewTheme == 'nordic light' then
-					Theme = Themes['Nordic Light']
-					local NewTable = {}
-					for Index, Value in next, Theme do
-						NewTable[Index] = Utility:SplitColor(Value)
-					end
-					writefile(''..tostring(LibraryName)..'CurrentTheme.json', HttpService:JSONEncode(NewTable))
-					Config['Theme_4z3s4QrUhfqt703FmiAe'] = HttpService:JSONEncode(NewTable)
-					ChangeThemeValue()
-				elseif NewTheme == 'purple' then
-					Theme = Themes['Purple']
-					local NewTable = {}
-					for Index, Value in next, Theme do
-						NewTable[Index] = Utility:SplitColor(Value)
-					end
-					writefile(''..tostring(LibraryName)..'CurrentTheme.json', HttpService:JSONEncode(NewTable))
-					Config['Theme_4z3s4QrUhfqt703FmiAe'] = HttpService:JSONEncode(NewTable)
-					ChangeThemeValue()
-				elseif NewTheme == 'sentinel' then
-					Theme = Themes['Sentinel']
-					local NewTable = {}
-					for Index, Value in next, Theme do
-						NewTable[Index] = Utility:SplitColor(Value)
-					end
-					writefile(''..tostring(LibraryName)..'CurrentTheme.json', HttpService:JSONEncode(NewTable))
-					Config['Theme_4z3s4QrUhfqt703FmiAe'] = HttpService:JSONEncode(NewTable)
-					ChangeThemeValue()
-				elseif NewTheme == 'synapse x' then
-					Theme = Themes['Synapse X']
-					local NewTable = {}
-					for Index, Value in next, Theme do
-						NewTable[Index] = Utility:SplitColor(Value)
-					end
-					writefile(''..tostring(LibraryName)..'CurrentTheme.json', HttpService:JSONEncode(NewTable))
-					Config['Theme_4z3s4QrUhfqt703FmiAe'] = HttpService:JSONEncode(NewTable)
-					ChangeThemeValue()
-				elseif NewTheme == 'krnl' then
-					Theme = Themes['Krnl']
-					local NewTable = {}
-					for Index, Value in next, Theme do
-						NewTable[Index] = Utility:SplitColor(Value)
-					end
-					writefile(''..tostring(LibraryName)..'CurrentTheme.json', HttpService:JSONEncode(NewTable))
-					Config['Theme_4z3s4QrUhfqt703FmiAe'] = HttpService:JSONEncode(NewTable)
-					ChangeThemeValue()
-				elseif NewTheme == 'script-ware' then
-					Theme = Themes['Script-Ware']
-					local NewTable = {}
-					for Index, Value in next, Theme do
-						NewTable[Index] = Utility:SplitColor(Value)
-					end
-					writefile(''..tostring(LibraryName)..'CurrentTheme.json', HttpService:JSONEncode(NewTable))
-					Config['Theme_4z3s4QrUhfqt703FmiAe'] = HttpService:JSONEncode(NewTable)
-					ChangeThemeValue()
-				elseif NewTheme == 'kiriot' then
-					Theme = Themes['Kiriot']
-					local NewTable = {}
-					for Index, Value in next, Theme do
-						NewTable[Index] = Utility:SplitColor(Value)
-					end
-					writefile(''..tostring(LibraryName)..'CurrentTheme.json', HttpService:JSONEncode(NewTable))
-					Config['Theme_4z3s4QrUhfqt703FmiAe'] = HttpService:JSONEncode(NewTable)
-					ChangeThemeValue()
+				else
+					return
 				end
 			end
 		end
@@ -2459,6 +2473,20 @@ function Library:CreateWindow(HubName, GotImprovePerformance)
                             )
                             ActualSection[TTName..Holder][TTName..'TooltipFrame'].Visible = false
                         end)
+						if not ImprovePerformance then
+							spawn(function()
+								while wait() do
+									if ChangeTheme and ActualSection[TTName..Holder] then
+										if not BreakAllLoops then
+											Utility:Tween(ActualSection[TTName..Holder][TTName..'TooltipFrame'][TTName..'TooltipText'], {TextColor3 = Theme.SecondaryTextColor}, 0.25)
+											Utility:Tween(ActualSection[TTName..Holder][TTName..'TooltipFrame'][TTName..'TooltipText'], {BackgroundColor3 = Theme.BackgroundColor}, 0.25)
+										else
+											break
+										end
+									end
+								end
+							end)
+						end
                     end
                 end)
             end
@@ -4940,4 +4968,5 @@ function Library:CreateWindow(HubName, GotImprovePerformance)
 	return Tabs
 end
 
+getgenv().SecretUiLibrary = Library
 return Library;
