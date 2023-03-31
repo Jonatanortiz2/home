@@ -4727,9 +4727,11 @@ function Library:CreateWindow(HubName, GotImprovePerformance)
 				ConfigUpdates[Name.."ColorPickerIsRainbow"] = RainbowmodeToggleFunctions
 
 				function ColorpickerFunctions:Set(Value)
+					local Initial = Color3.new(Value.R/255,Value.G/255,Value.B/255)
+					Color = Initial;
+					ColorpickerPreview.BackgroundColor3 = Initial
+					Callback(Initial)
 					Color = {Value.R,Value.G,1}
-					ColorpickerPreview.BackgroundColor3 = Value
-					Callback(Value)
 				end
 				ConfigUpdates[Name] = ColorpickerFunctions
 				return ColorpickerFunctions
